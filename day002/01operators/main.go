@@ -52,4 +52,20 @@ func main() {
 	//  >>
 	fmt.Println(3 >> 1)
 
+	fmt.Println(13 & 3)
+	// | (两个对应的二进制位有1个为1就为1)
+	fmt.Println(13 | 3)
+	// ^ (两个对应的二进制位不一样则为1)
+	fmt.Println(13 ^ 3)
+	// <<
+	fmt.Println(3 << 10)
+	// >>
+	fmt.Println(3 >> 3)
+
+	//赋值运算符
+	num := 10
+	x := 2
+	// num = num / x
+	num /= x
+	fmt.Println(num)
 }
