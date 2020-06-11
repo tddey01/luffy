@@ -1,3 +1,3 @@
 module github.com/tddey01/luffy
 
-go 1.14
+go 1.14j
