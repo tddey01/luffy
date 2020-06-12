@@ -9,7 +9,8 @@ func main() {
 	var b = []int{1, 2, 3} // 切片
 	fmt.Println(a, b)
 	fmt.Printf("a:%T b:%T\n", a, b)
-
+	fmt.Printf("b的长度是：%d\n",len(b))
+	fmt.Printf("b的容量是:%d\n", cap(b))
 	fmt.Println(b[1])
 
 	// // 声明前排的方式2： 从数组得到切片
@@ -30,4 +31,6 @@ func main() {
 	x := [...]string{"北京", "上海", "深圳", "广州", "成都", "杭州", "西安", "重庆"}
 	y := x[1:4]
 	fmt.Println(y)
+	fmt.Printf("切片y的长度是：%d\n", len(y))
+	fmt.Printf("切片y的容量是：%d\n", cap(y)-1)
 }
