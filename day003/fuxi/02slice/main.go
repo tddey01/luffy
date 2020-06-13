@@ -47,11 +47,23 @@ func main() {
 	// s5 := make([]bool, 2, 10)
 	// fmt.Println(s5)
 
-	//  切片追加元素
+	// //  切片追加元素
 	a := []int{1, 2, 3}
-	fmt.Println(len(a), cap(a))
-	a = append(a, 4)
+	// fmt.Println(len(a), cap(a))
+	// a = append(a, 4)
+	// fmt.Println(a)
+	// fmt.Println(len(a), cap(a))
+
+	// // 切片的拷贝
+	// var b []int
+	// b=make([]int, 3)
+	// copy(b, a) //此时a和b分别指向了两个不同的切片
+	// a[1] = 100 // 只是修改a
+	// fmt.Println(a)
+	// fmt.Println(b)
+
+	// 切片删除元素
+	a = append(a[:1], a[2:]...)
 	fmt.Println(a)
-	fmt.Println(len(a), cap(a))
 
 }
