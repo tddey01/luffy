@@ -5,6 +5,8 @@ import "fmt"
 // defer
 func f1() {
 	defer fmt.Println(1)
+	// defer panic("haha")
+
 	defer fmt.Println(2)
 	defer fmt.Println(3)
 	defer fmt.Println("北京")
