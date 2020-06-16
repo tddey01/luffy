@@ -6,7 +6,7 @@ import (
 	"github.com/tddey01/luffy/day004/02package/math_pkg"
 )
 
-// const Mode = 1
+const Mode = 1
 
 func main() {
 	math_pkg.Add(100, 200)
