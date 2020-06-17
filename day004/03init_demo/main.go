@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	_ "github.com/tddey01/luffy/day004/02package/math_pkg"
+)
 
 // init() 初始化
 var today = "星期天"
