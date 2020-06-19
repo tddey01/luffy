@@ -1,0 +1,5 @@
+[2020-06-19 18:27:38.707] [DEBUG] [main.go:main.main][14] 这是一条DEBUG测试日志
+这是一条INFO日志
+[2020-06-19 18:27:38.707] [DEBUG] [main.go:main.main][18] ID是 10 的用户一直尝试登陆
+[2020-06-19 18:27:57.418] [DEBUG] [main.go:main.main][14] 这是一条DEBUG测试日志
+[2020-06-19 18:27:57.418] [DEBUG] [main.go:main.main][18] ID是 10 的用户一直尝试登陆
