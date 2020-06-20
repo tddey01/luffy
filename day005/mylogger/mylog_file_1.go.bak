@@ -1,0 +1,102 @@
+package mylogger
+
+import (
+	"fmt"
+	"os"
+	"path"
+	"time"
+)
+
+// 往文件里面写日志代码
+
+// FIleLogger 日志结构体
+type FIleLogger struct {
+	Level    Level
+	fileName string
+	filepath string
+	file     *os.File
+	errFile  *os.File
+}
+
+// NewFileLogger 文件日志结构体构造函数
+func NewFileLogger(fileName, filepath string) *FIleLogger {
+	fl := &FIleLogger{
+		fileName: fileName,
+		filepath: filepath,
+	}
+	fl.initFile() // 根据上面的文件路径和文件名打开日志文件， 把文件句柄赋值给结构体字段
+	return fl
+}
+
+// 将指定的日志文件打开 赋值给结构体
+func (f *FIleLogger) initFile() {
+	logName := path.Join(f.filepath, f.fileName)
+	// 打开文件
+	fileObj, err := os.OpenFile(logName, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0644)
+	if err != nil {
+		panic(fmt.Errorf("打开日志%s文件失败 %v", logName, err))
+	}
+	f.file = fileObj
+	// 打开错误日志的文件
+
+	errLogName := fmt.Sprintf("%s.err", logName)
+	errFileObj, err := os.OpenFile(errLogName, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0644)
+	if err != nil {
+		panic(fmt.Errorf("打开日志%s文件失败 %v", errLogName, err))
+	}
+	f.errFile = errFileObj
+}
+
+// DEBUG 级别日志
+func (f *FIleLogger) DEBUG(format string, args ...interface{}) {
+	if f.Level > DEBUGLevel {
+		return
+	}
+	// f.file.Write(b)
+	msg := fmt.Sprintf(format, args...) // 得到用户要记录的日志
+
+	//  日志格式 [时间][文件:行号][函数名][日志级别]日志信息
+	newtime := time.Now().Format("2006-02-03 15:04:05.000")
+	fileName, funcName, line := getCallerInfo(2)
+	logMsg := fmt.Sprintf("[%s] [%s:%d] [%s] [%s] %s", newtime, fileName, line, funcName, "DEBUG", msg)
+	fmt.Fprintln(f.file, logMsg) //利用fmt包净msg字符串写入f.file文件中
+	// fmt.Errorf(format, a)
+	// fmt.Sprintf(format, a)
+
+}
+
+// INFO 级别日志
+func (f *FIleLogger) INFO(format string, args ...interface{}) {
+	if f.Level > INFOLevel {
+		return
+	}
+	// f.file.Write(b)
+	msg := fmt.Sprintf(format, args...) // 得到用户要记录的日志
+
+	//  日志格式 [时间][文件:行号][函数名][日志级别]日志信息
+	newtime := time.Now().Format("2006-02-03 15:04:05.000")
+	fileName, funcName, line := getCallerInfo(2)
+	logMsg := fmt.Sprintf("[%s] [%s:%d] [%s] [%s] %s", newtime, fileName, line, funcName, "INFO", msg)
+	fmt.Fprintln(f.file, logMsg) //利用fmt包净msg字符串写入f.file文件中
+	// fmt.Errorf(format, a)
+	// fmt.Sprintf(format, a)
+
+}
+
+// WARNING 级别日志
+func (f *FIleLogger) WARNING(format string, args ...interface{}) {
+	if f.Level > WARNINGLevel {
+		return
+	}
+	// f.file.Write(b)
+	msg := fmt.Sprintf(format, args...) // 得到用户要记录的日志
+
+	//  日志格式 [时间][文件:行号][函数名][日志级别]日志信息
+	newtime := time.Now().Format("2006-02-03 15:04:05.000")
+	fileName, funcName, line := getCallerInfo(2)
+	logMsg := fmt.Sprintf("[%s] [%s:%d] [%s] [%s] %s", newtime, fileName, line, funcName, "WARNING", msg)
+	fmt.Fprintln(f.file, logMsg) //利用fmt包净msg字符串写入f.file文件中
+	// fmt.Errorf(format, a)
+	// fmt.Sprintf(format, a)
+
+}
