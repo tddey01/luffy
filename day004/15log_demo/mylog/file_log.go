@@ -46,22 +46,36 @@ func (f *FileLogger) DEBUG(format string, args ...interface{}) {
 	// f.logFile.WriteString(msg)
 	//  [2020-04-21 18:58:01] [DEBUG] main.go [14] id为 10 的用户一直在尝试登陆
 	// nowStr := time.Now().Format("[2006-01-02 15:04:05.000]")
-	nowSt1 := time.Now().Format("[2006-01-02 15:04:05.000]")
-	format = fmt.Sprintf("%s [%s] [%s:%s][%d] %s", nowSt1, getlevelStr(f.level), fileName, funcName, line, format)
+	nowStr := time.Now().Format("[2006-01-02 15:04:05.000]")
+	format = fmt.Sprintf("%s [%s] [%s:%s][%d] %s", nowStr, getlevelStr(f.level), fileName, funcName, line, format)
 	fmt.Fprintf(f.logFile, format, args...)
 	fmt.Fprintln(f.logFile) //换行
 }
 
 // INFO  记录日志
 func (f *FileLogger) INFO(format string, args ...interface{}) {
+	if f.level > INFO{
+		return
+	}
+	fileName,funcName,line := getCallerInfo()
 	// 往文件里面写
 	// f.logFile.WriteString(msg) // 满足不了我们不需求
+	newStr :=time.Now().Format("[2006-01-02 15:04:05.000]")
+	format = fmt.Sprintf("%s [%s] [%s:%s][%d] %s", newStr, getlevelStr(f.level), fileName, funcName, line, format)
 	fmt.Fprintf(f.logFile, format, args...)
 	fmt.Fprintln(f.logFile) //换行
 }
 
 // ERROR  记录日志
 func (f *FileLogger) ERROR(format string, args ...interface{}) {
+	if f.level > ERROR{
+		return
+	}
+	fileName,funcName,line := getCallerInfo()
+	// 往文件里面写
+	// f.logFile.WriteString(msg) // 满足不了我们不需求
+	newStr :=time.Now().Format("[2006-01-02 15:04:05.000]")
+	format = fmt.Sprintf("%s [%s] [%s:%s][%d] %s", newStr, getlevelStr(f.level), fileName, funcName, line, format)
 	// 往文件里面写
 	// f.logFile.WriteString(msg)
 	fmt.Fprintf(f.logFile, format, args...)
