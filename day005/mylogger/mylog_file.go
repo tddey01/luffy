@@ -64,7 +64,7 @@ func (f *FIleLogger) splitLoggerFile(file *os.File) *os.File {
 
 	//切分文件
 	fileName := file.Name()
-	backupName := fmt.Sprintf("%s_%v.back", fileName, time.Now().Unix())
+	backupName := fmt.Sprintf("%s_%v.log", fileName, time.Now().Unix())
 	// 把原来的文件关闭
 	f.file.Close()
 	// 备份原来的文件

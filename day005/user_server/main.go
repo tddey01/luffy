@@ -8,7 +8,7 @@ var logger mylogger.Logger
 
 //  一个使用自定义日志库的用户程序
 func main() {
-	logger = mylogger.NewFileLogger("fatal", "./", "xx.log")
+	logger = mylogger.NewFileLogger("DEBUG", "./", "xx.log")
 	defer logger.Close()
 	// logger := mylogger.NewConsoleFileLogger("debug")
 	for {
