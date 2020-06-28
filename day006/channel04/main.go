@@ -3,20 +3,21 @@ package main
 import (
 	"fmt"
 	"math/rand"
-	"time"
+	"sync"
 )
 
-// 通道
-// 生成者消费这模型
-// 使用goroutine和channel实现一个简易的生产消费者模型
+// 生产者消费者模型
+// 使用goroutine和channel实现一个简易的生产者消费者模型
 
-// 生成者  产生随机 math.rand
-//
-// 消费者 计算每个随机数的每个位的数字的和  13144134123 =
+// 生产者：产生随机数  math/rand
 
-// 1 生产者  20个随机数
+// 消费者：计算每个随机数的每个位的数字的和     14134134123 = ?
+
+// 1个生产者 20个消费者
+
 var itemChan chan *item
 var resultChan chan *result
+var wg sync.WaitGroup
 
 type item struct {
 	id  int64
@@ -30,46 +31,47 @@ type result struct {
 
 // 生产者
 func producer(ch chan *item) {
-	// 生产随机数
+	// 1. 生成随机数
 	var id int64
-	for {
+	for i := 0; i < 10000; i++ {
 		id++
-		number := rand.Int63() // int64整数
+		number := rand.Int63() // int64正整数
 		tmp := &item{
 			id:  id,
 			num: number,
 		}
-		// 把随机书发送到通道
+		// 2. 把随机数发送到通道中
 		ch <- tmp
 	}
+	close(ch)
 }
 
 // 计算一个数字每个位的和
 func calc(num int64) int64 {
-	// 123%10=12...3 sum = 0 + 3
+	// 123%10=12...3  sum = 0 + 3
 	// 12%10=1...2
-	// 1%10=0...3
-	var sum int64
+	// 1%10=0...1
+	var sum int64 // 0
 	for num > 0 {
-		sum = sum + num%10 // sum = 0 + 3
-		num = num / 10     // num = 12
+		sum = sum + num%10 // sum = 5 + 1
+		num = num / 10     // num = 0
 	}
 	return sum
 }
 
 // 消费者
 func consumer(ch chan *item, resultChan chan *result) {
-
-	for tmp := range ch { //
-		// tmp := <-ch // 结构体指针 *item
-		// (*item).num // item.num
+	defer wg.Done()
+	for tmp := range ch {
+		// (*tmp).num // item.num
 		sum := calc(tmp.num)
-		retobj := &result{
+		// 构造result结构体
+		retObj := &result{
 			item: tmp,
 			sum:  sum,
 		}
-		resultChan <- retobj
-	}
+		resultChan <- retObj
+	} // 结构体指针 *item
 }
 
 func startWorker(n int, ch chan *item, resultChan chan *result) {
@@ -79,26 +81,30 @@ func startWorker(n int, ch chan *item, resultChan chan *result) {
 }
 
 // 打印结果
-func printResuft(resultChan chan *result) {
+func printResult(resultChan chan *result) {
 	for ret := range resultChan {
-		fmt.Printf("id%v, num:%v sum:%v\n", ret.item.id, ret.item.num, ret.sum)
-		time.Sleep(time.Second)
+		fmt.Printf("id:%v, num:%v, sum:%v\n", ret.item.id, ret.item.num, ret.sum)
+		// time.Sleep(time.Second)
 	}
 }
 
 func main() {
-	itemChan = make(chan *item, 100)
-	resultChan = make(chan *result, 100)
-
+	itemChan = make(chan *item, 10000)
+	resultChan = make(chan *result, 10000)
 	go producer(itemChan)
+	wg.Add(20)
 	startWorker(20, itemChan, resultChan)
 
-	printResuft(resultChan)
-
 	// // 打印结果
-	// rand.Seed(time.Now().Unix())
-	// ret := rand.Int63()    // int64正整数
-	// ret1 := rand.Intn(101) // [1 101]
-	// fmt.Println(ret)
+	wg.Wait() // 等到所有的生产result的goroutine都结束 再打印
+	close(resultChan)
+	printResult(resultChan)
+
+	// 给rand加随机数种子实现每一次执行都能产生真正的随机数
+	// rand.Seed(time.Now().UnixNano())
+	// ret1 := rand.Int63() // int64正整数
 	// fmt.Println(ret1)
+	// ret2 := rand.Intn(101) // [1, 101)
+	// fmt.Println(ret2)
+
 }
