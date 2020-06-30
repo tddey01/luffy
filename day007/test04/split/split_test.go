@@ -68,4 +68,25 @@ func TestMultiSepSplit(t *testing.T) {
 }
 
 //  go test -cover -coverprofile=c.out
-//  go tool cover -html=c.out 
+//  go tool cover -html=c.out
+
+// 基准测试函数格式
+func BenchmarkSplit(b *testing.B) {
+	b.Log("这是一个基准测试")
+	for i := 0; i < b.N; i++ {
+		Split("a:b:c", ":")
+	}
+}
+
+//  go test  -bench BenchmarkSplit   使用方法
+//  go test  -bench BenchmarkSplit -benchmem  内存 优化性能
+
+//  并行测试
+func BenchmarkSplitParallel(b *testing.B) {
+	// b.SetParallelism(1) // 设置使用的CPU数
+	b.RunParallel(func(pb *testing.PB) {
+		for pb.Next() {
+			Split("沙河有沙又有河", "沙")
+		}
+	})
+}

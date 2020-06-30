@@ -9,7 +9,9 @@ import (
 
 // Split 用sep分数
 //  a:b:c ： --> [a b c]
-func Split(s, sep string) (result []string) {
+func Split(s, sep string) []string {
+	count := strings.Count(s, sep)       // 数一下字符串s中包含多少个sep
+	result := make([]string, 0, count+1) // 根据sep的数量初始化切片
 	index := strings.Index(s, sep)
 	for index >= 0 {
 		result = append(result, s[:index])
@@ -17,7 +19,7 @@ func Split(s, sep string) (result []string) {
 		index = strings.Index(s, sep)
 	}
 	result = append(result, s)
-	return
+	return result
 }
 
 func add(a, b string) string {
