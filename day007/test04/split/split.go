@@ -1,6 +1,7 @@
 package split
 
 import (
+	"fmt"
 	"strings"
 )
 
@@ -17,4 +18,8 @@ func Split(s, sep string) (result []string) {
 	}
 	result = append(result, s)
 	return
+}
+
+func add(a, b string) string {
+	return fmt.Sprintf("%s%s", a, b)
 }

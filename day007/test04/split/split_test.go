@@ -66,3 +66,6 @@ func TestMultiSepSplit(t *testing.T) {
 		})
 	}
 }
+
+//  go test -cover -coverprofile=c.out
+//  go tool cover -html=c.out 
