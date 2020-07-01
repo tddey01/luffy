@@ -22,7 +22,7 @@ func Split(s, sep string) []string {
 	return result
 }
 
-// add 实现字符串相加含糊
+// Add 实现字符串相加含糊
 func Add(a, b string) string {
 	return fmt.Sprintf("%s%s", a, b)
 }
