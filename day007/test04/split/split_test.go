@@ -1,6 +1,8 @@
 package split
 
 import (
+	"fmt"
+	"os"
 	"reflect"
 	"testing"
 )
@@ -53,15 +55,22 @@ func TestMultiSepSplit(t *testing.T) {
 		"multi":  test{"abcfbcabcd", "bc", []string{"a", "f", "a", "d"}},
 		"num":    test{"1231", "1", []string{"", "23", ""}},
 	}
+
 	for name, item := range tests {
 		// ret := Split(item.str, item.sep)
 		// if !reflect.DeepEqual(ret, item.want) {
 		// 	t.Fatalf("测试用例:%v失败 期望得到:%#v, 实际得到:%#v\n", name, item.want, ret)
 		// }
 		t.Run(name, func(t *testing.T) { // 使用t.Run()执行子测试
-			got := Split(item.str, item.sep)
-			if !reflect.DeepEqual(got, item.want) {
-				t.Errorf("excepted:%#v, got:%#v", item.want, got)
+			//  测试之前做点什么
+			t.Log("要开始测试拉！...")
+			defer func() {
+				t.Log("沙河出太阳")
+			}()
+			ret := Split(item.str, item.sep)
+			t.Log("官大吗 SB")
+			if !reflect.DeepEqual(ret, item.want) {
+				t.Errorf("期望得到:%#v, 实际得到:%#v", item.want, ret)
 			}
 		})
 	}
@@ -89,4 +98,61 @@ func BenchmarkSplitParallel(b *testing.B) {
 			Split("沙河有沙又有河", "沙")
 		}
 	})
+}
+
+func TestMain(m *testing.M) {
+	fmt.Println("write setup code here...") // 测试之前的做一些设置
+	// 如果 TestMain 使用了 flags，这里应该加上flag.Parse()
+	retCode := m.Run()                         // 执行测试
+	fmt.Println("write teardown code here...") // 测试之后做一些拆卸工作
+	os.Exit(retCode)                           // 退出测试
+}
+
+// // 测试集的Setup与Teardown
+// func setupTestCase(t *testing.T) func(t *testing.T) {
+// 	t.Log("如有需要在此执行:测试之前的setup")
+// 	return func(t *testing.T) {
+// 		t.Log("如有需要在此执行:测试之后的teardown")
+// 	}
+// }
+
+// // 子测试的Setup与Teardown
+// func setupSubTest(t *testing.T) func(t *testing.T) {
+// 	t.Log("如有需要在此执行:子测试之前的setup")
+// 	return func(t *testing.T) {
+// 		t.Log("如有需要在此执行:子测试之后的teardown")
+// 	}
+// }
+
+// func TestSplit(t *testing.T) {
+// 	type test struct { // 定义test结构体
+// 		input string
+// 		sep   string
+// 		want  []string
+// 	}
+// 	tests := map[string]test{ // 测试用例使用map存储
+// 		"simple":      {input: "a:b:c", sep: ":", want: []string{"a", "b", "c"}},
+// 		"wrong sep":   {input: "a:b:c", sep: ",", want: []string{"a:b:c"}},
+// 		"more sep":    {input: "abcd", sep: "bc", want: []string{"a", "d"}},
+// 		"leading sep": {input: "沙河有沙又有河", sep: "沙", want: []string{"", "河有", "又有河"}},
+// 	}
+// 	teardownTestCase := setupTestCase(t) // 测试之前执行setup操作
+// 	defer teardownTestCase(t)            // 测试之后执行testdoen操作
+
+// 	for name, tc := range tests {
+// 		t.Run(name, func(t *testing.T) { // 使用t.Run()执行子测试
+// 			teardownSubTest := setupSubTest(t) // 子测试之前执行setup操作
+// 			defer teardownSubTest(t)           // 测试之后执行testdoen操作
+// 			got := Split(tc.input, tc.sep)
+// 			if !reflect.DeepEqual(got, tc.want) {
+// 				t.Errorf("excepted:%#v, got:%#v", tc.want, got)
+// 			}
+// 		})
+// 	}
+// }
+
+// 实例函数
+func ExampleAdd() {
+	fmt.Println(Add("官大妈", "DSB"))
+	// OutPut: 官大码DSB
 }
