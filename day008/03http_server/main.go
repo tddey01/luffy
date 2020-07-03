@@ -23,7 +23,7 @@ func sayHello(w http.ResponseWriter, t *http.Request) {
 func main() {
 	http.HandleFunc("/", sayHello) // 注册一个处理 / 的函数
 	// 启动服务
-	err := http.ListenAndServe("127.0.0.1:9090", nil)
+	err := http.ListenAndServe("127.0.0.1:8080", nil)
 	if err != nil {
 		panic(err)
 	}
