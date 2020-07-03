@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- https://www.cnblogs.com/liwenzhou/ -->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,11 +21,11 @@
     <!-- 邮箱 -->
     <input type="email">
 
-    <form action="">
+    <form action="http://127.0.0.1:8080/index" method="POST">
         <div>
             <label for="i1">用户名</label>
-            <input id="i1" name="username" type="text" placeholder="北京" disabled="disabled">
-            <!-- <input id="i1" name="username" type="text" value="北京"> -->
+            <!-- <input id="i1" name="username" type="text" placeholder="北京" disabled="disabled"> -->
+            <input id="i1" name="username" type="text" value="北京">
         </div>
         <div>
             <label>密&nbsp;&nbsp;&nbsp;码
@@ -84,6 +85,11 @@
             <input type="button" value="普通按钮">
         </div>
 
+    </form>
+    <hr>
+    <form action="">
+        <input type="input" name="query" value="">
+        <input type="submit" value="sougou">
     </form>
 </body>
 
