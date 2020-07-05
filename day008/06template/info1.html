@@ -36,10 +36,15 @@
         {{printf "姓名：%s 年龄：%d" .UserName .Age }}
         {{end}}
     </p>
-    <p>
-        {{with index . 1}}
-        {{kua .}}
-    </p>
+    <hr>
+
+    {{with index . 1}}
+    <p>{{kua .UserName}}</p>
+    {{end}}
+
+    {{with index . 3}}
+    <p>{{kua .UserName}}</p>
+    {{end}}
 </body>
 
 </html>
