@@ -1,10 +1,10 @@
 package main
 
 import (
-	// 只用到了他的这个包里面的init()
 	"database/sql"
 	"fmt"
 
+	// 只用到了他的这个包里面的init()
 	_ "github.com/go-sql-driver/mysql"
 )
 
