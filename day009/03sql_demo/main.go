@@ -102,7 +102,7 @@ func insertDemo() {
 		return
 	}
 	// 拿到刚插入的数据id值（不同的数据库有不同的实现）
-	theID, err := ret.LastInsertId()
+	theID, err := ret.LastInsertId() // 操作影响的行数
 	if err != nil {
 		fmt.Printf("get lastinsertid failed, err:%v\n", err)
 		return
@@ -157,9 +157,9 @@ func main() {
 	// 查询单条
 	// queryRowDemo()
 	//
-	// queryRowFaultDemo() 
+	// queryRowFaultDemo()
 	// 查询多条
-	// queryMultiDemo()  
+	// queryMultiDemo()
 	// 插入数据
 	// insertDemo()
 	// 更新数据
