@@ -53,7 +53,7 @@ func queryRowDemo() {
 // 演示查询单行数据不调用row的Scan方法，会一直占用连接
 func queryRowFaultDemo() {
 	// 查询单行数据
-	for i := 0; i < 3; i++ {
+	for i := 0; i < 1; i++ {
 		fmt.Printf("第%d次查询。\n", i)
 		// sql:select id,name,age from user where id=1;
 		sqlStr := "select id,name,age from users where id=1"
@@ -133,7 +133,7 @@ func updateDemo() {
 // sql: delete from user where id=2;
 func deleteDemo() {
 	sqlStr := "delete from users where id=?"
-	ret, err := DB.Exec(sqlStr, 2)
+	ret, err := DB.Exec(sqlStr, 3)
 	if err != nil {
 		fmt.Printf("deleter failed, err:%v\n", err)
 		return
@@ -157,13 +157,13 @@ func main() {
 	// 查询单条
 	// queryRowDemo()
 	//
-	// queryRowFaultDemo()
+	// queryRowFaultDemo() 
 	// 查询多条
-	queryMultiDemo()
+	// queryMultiDemo()  
 	// 插入数据
 	// insertDemo()
 	// 更新数据
 	// updateDemo()
 	// 删除数据
-	// deleteDemo()
+	deleteDemo()
 }

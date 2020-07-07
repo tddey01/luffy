@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net"
 
-	"code.oldboy.com/studygolang/day08/02socket_stick/proto"
+	"github.com/tddey01/luffy/day008/02socket_stick/proto"
 )
 
 // 粘包现象 服务端

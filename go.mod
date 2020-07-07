@@ -1,4 +1,4 @@
-module github.com/tddey01/luffy/day009/03sql_demo
+module github.com/tddey01/luffy
 
 go 1.14
 
