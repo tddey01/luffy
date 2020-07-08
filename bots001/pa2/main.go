@@ -70,6 +70,7 @@ func main() {
 	waitGroup.Wait()
 }
 
+// GetImg 下载图片
 func GetImg(url string) {
 	pageStr := GetPageStr(url)
 	re := regexp.MustCompile(reImg)
@@ -79,7 +80,7 @@ func GetImg(url string) {
 	}
 }
 
-// 下载图片 传入图片叫什么
+// Downloads 下载图片 传入图片叫什么
 func Downloads(url string, filename string) (ok bool) {
 	resp, err := http.Get(url)
 	HandleError(err, "http.Get.url")
