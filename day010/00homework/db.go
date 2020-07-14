@@ -7,14 +7,15 @@ import (
 	"github.com/jmoiron/sqlx"
 )
 
-// DB  当你不知道变量名首字母是不是应该大写还是小写， 那你就用小写
+// 当你不知道变量名首字母是应该大写还是小写的时候，那你就用小写
 // 保证最小暴露原则
 var db *sqlx.DB
 
-//  初始化数据库
+// 初始化数据库
 func initDB() (err error) {
-	dsn := "root:123456@tcp(127.0.0.1:3306)/go_test??charset=utf8&parseTime=true&loc=Local"
-	db, err := sqlx.Connect("mysql", dsn)
+	// dsn := "root:123456@tcp(127.0.0.1:3306)/go_test?parsetime=true"
+	dsn := "root:123456@tcp(127.0.0.1:3306)/go_test"
+	db, err = sqlx.Connect("mysql", dsn)
 	if err != nil {
 		return err
 	}
@@ -24,12 +25,23 @@ func initDB() (err error) {
 	return
 }
 
-// 创建用户数据函数
+// 创建用户的函数
 func createUser(username, password string) error {
-	sqlStr := "insert into user(usernma,password) values(?,?)"
+	sqlStr := "insert into user(username,password) values(?,?)"
 	_, err := db.Exec(sqlStr, username, password)
 	if err != nil {
-		fmt.Println("插入失败", err)
+		fmt.Println("插入userinfo数据失败！")
+		return err
+	}
+	return nil
+}
+
+// 查询数据库
+func queryUser(username, password string) error {
+	sqlStr := "select id from user where username=? and password=? limit 1"
+	var id int64
+	err := db.Get(&id, sqlStr, username, password)
+	if err != nil {
 		return err
 	}
 	return nil
