@@ -10,6 +10,7 @@ import (
 
 // BookMagesMentSystem
 func main() {
+	gin.SetMode(gin.DebugMode)
 	//  程序启动 就连接数据库
 	err := initDB()
 	if err != nil {
