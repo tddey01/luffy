@@ -77,20 +77,21 @@ func seacrhhandler(c *gin.Context) {
 }
 
 type Userinfo struct {
-	Username string `form:"username" json:"username"`
-	Password string `form:"password" json:"password"`
+	Username string `form:"username" json:"username" binding:"required"`
+	Password string `form:"password" json:"password" binding:"required"`
 }
 
 func loginAnyhandler(c *gin.Context) {
 	if c.Request.Method == "POST" {
 		// 处理用户提交过来的请求数据
 		var u Userinfo          // 声明一个Userinfo类型变量
-		err := c.ShouldBind(&u) // ShouldBind:根据请求的Content-Type
+		err := c.ShouldBind(&u) // ShouldBind:根据请求中的Content-Type
 		if err != nil {
 			// 解析数据出问题了
 			c.JSON(http.StatusOK, gin.H{
-				"code": err.Error(),
+				"err": err.Error(),
 			})
+			return
 		}
 
 		c.JSON(http.StatusOK, gin.H{
