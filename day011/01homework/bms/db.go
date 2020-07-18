@@ -50,6 +50,7 @@ func initDB() (err error) {
 
 // 查数据
 func queryAllBook() (bookList []*Book, err error) {
+
 	sqlStr := "SELECT  id,title,price FROM book"
 	err = db.Select(&bookList, sqlStr)
 	if err != nil {
@@ -58,6 +59,29 @@ func queryAllBook() (bookList []*Book, err error) {
 	}
 	return
 }
+
+//  查询单条数据
+func queryBookByID(id int64) (book Book, err error) {
+
+	sqlStr := "SELECT  id,title,price FROM book WHERE id=?"
+	err = db.Get(&book, sqlStr, id)
+	if err != nil {
+		fmt.Println("查询书籍信息失败！")
+		return
+	}
+	return
+}
+
+// func queryBookByID(id int64) (book *Book, err error) {
+// 	book = &Book{}
+// 	sqlStr := "SELECT  id,title,price FROM book WHERE id=?"
+// 	err = db.Get(book, sqlStr, id)
+// 	if err != nil {
+// 		fmt.Println("查询书籍信息失败！")
+// 		return
+// 	}
+// 	return
+// }
 
 //  插入数据
 func insertBook(title string, price float64) (err error) {
@@ -76,6 +100,17 @@ func deleteBook(id int64) (err error) {
 	_, err = db.Exec(sqlStr, id)
 	if err != nil {
 		fmt.Println("删除 书籍失败", err)
+		return
+	}
+	return
+}
+
+//  day 11
+func editBook(title string, price float64, id int64) (err error) {
+	sqlStr := "UPDATE book SET title=?, price=? WHERE id = ?;"
+	_, err = db.Exec(sqlStr, title, price, id)
+	if err != nil {
+		fmt.Println("更新书籍失败", err)
 		return
 	}
 	return

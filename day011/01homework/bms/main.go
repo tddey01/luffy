@@ -18,12 +18,24 @@ func main() {
 	}
 	r := gin.Default()
 	r.LoadHTMLGlob("template/**/*")
-	//  查看所有书籍数据
-	r.GET("/book/list", bookListHandler)
-	// 返回一个页面给用户填写新增的书籍信息
-	r.GET("/book/new", newBookhandler)
-	r.POST("/book/new", createnewBookhandler)
-	r.GET("/book/detele", deleteBookhandler)
+	// //  查看所有书籍数据
+	// r.GET("/book/list", bookListHandler)
+	// // 返回一个页面给用户填写新增的书籍信息
+	// r.GET("/book/new", newBookhandler)
+	// r.POST("/book/new", createnewBookhandler)
+	// r.GET("/book/detele", deleteBookhandler)
+	// // day11
+	// r.Any("/book/edit", editBookHandler)
+
+	BookGroup := r.Group("/book")
+	{
+		BookGroup.GET("/list", bookListHandler)
+		BookGroup.GET("/new", newBookhandler)
+		BookGroup.POST("/new", createnewBookhandler)
+		BookGroup.GET("/detele", deleteBookhandler)
+		// day11
+		BookGroup.Any("/edit", editBookHandler)
+	}
 	r.Run()
 }
 
@@ -106,4 +118,68 @@ func deleteBookhandler(c *gin.Context) {
 		return
 	}
 	c.Redirect(http.StatusMovedPermanently, "/book/list")
+}
+
+// 编辑更新书籍
+func editBookHandler(c *gin.Context) {
+	// 1  获取到用户编辑的是书的那一本， 从querystring获取到需要编辑数据id值
+	idStr := c.Query("id")
+	if len(idStr) == 0 {
+		// 请求中没有携带我要用的数据， 该请求是无效
+		c.String(http.StatusBadRequest, "无效的请求", nil)
+		return
+	}
+	//  HTTP请求传过来的参数 通常都是string类型， 根据需要自己需求转换成相应的数据类型
+	bookID, err := strconv.ParseInt(idStr, 10, 64)
+	if err != nil {
+		// 请求中没有携带我要用的数据， 该请求是无效
+		c.String(http.StatusBadRequest, "无效的请求", nil)
+		return
+	}
+	if c.Request.Method == "POST" {
+		// 1. 获取用户提交的数据
+		titleVal := c.PostForm("title")
+		priceStr := c.PostForm("price")
+		priceVal, err := strconv.ParseFloat(priceStr, 64)
+		if err != nil {
+			c.String(http.StatusBadRequest, "无效价格信息", nil)
+			return
+		}
+		// 2. 去数据库更新对应的书籍数据
+		// ? id去哪儿了？
+		err = editBook(titleVal, priceVal, bookID)
+		if err != nil {
+			c.String(http.StatusInternalServerError, "更新数据失败")
+			return
+		}
+		// 3. 跳转回/book/list页面查看是否修改成功
+		// 相同网站跳转：可以写相对路径
+		// 不一样的网站跳转：需要写绝对路径
+		c.Redirect(http.StatusMovedPermanently, "/book/list")
+	} else {
+		// 需要通过给模板渲染上原来的旧数据
+		// 1  获取到用户编辑的是书的那一本， 从querystring获取到需要编辑数据id值
+		// idStr := c.Query("id")
+		// if len(idStr) == 0 {
+		// 	// 请求中没有携带我要用的数据， 该请求是无效
+		// 	c.String(http.StatusBadRequest, "无效的请求", nil)
+		// 	return
+		// }
+		// //  HTTP请求传过来的参数 通常都是string类型， 根据需要自己需求转换成相应的数据类型
+		// bookID, err := strconv.ParseInt(idStr, 10, 64)
+		// if err != nil {
+		// 	// 请求中没有携带我要用的数据， 该请求是无效
+		// 	c.String(http.StatusBadRequest, "无效的请求", nil)
+		// 	return
+		// }
+		// 2 根据id取到书籍信息
+		bookObj, err := queryBookByID(bookID)
+		if err != nil {
+			c.String(http.StatusBadRequest, "无效的书籍id", nil)
+			return
+		}
+
+		// 3 把书籍数据渲染到页面上
+		c.HTML(http.StatusOK, "book/book_edit.html", bookObj)
+	}
 }

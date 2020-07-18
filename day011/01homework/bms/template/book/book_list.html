@@ -15,7 +15,7 @@
             <th>ID</th>
             <th>title</th>
             <th>price</th>
-            <th>选项</th>
+            <th>操作</th>
         </tr>
         <tbody>
             {{range .data}}
@@ -23,7 +23,10 @@
                 <td>{{.ID}}</td>
                 <td>{{.Title}}</td>
                 <td>{{.Price}}</td>
-                <td><a href="/book/detele?id={{.ID}}">删除</a></td>
+                <td>
+                    <a href="/book/detele?id={{.ID}}">删除</a>
+                    <a href="/book/edit?id={{.ID}}">编辑</a>
+                </td>
             </tr>
             {{end}}
         </tbody>
