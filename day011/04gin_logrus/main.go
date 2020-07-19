@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"net/http"
 	"os"
 
@@ -25,7 +26,8 @@ func initLogrus() (err error) {
 	//  告诉gin把它的日志也记录到我们打开的文件中
 	gin.SetMode(gin.ReleaseMode) // gin 设置为logrus日志插件
 	gin.DisableConsoleColor()
-	gin.DefaultWriter = log.Out
+	// gin.DefaultWriter = log.Out
+	gin.DefaultWriter = io.MultiWriter(log.Out)
 	// 设置日志级别
 	log.Level = logrus.InfoLevel
 	return

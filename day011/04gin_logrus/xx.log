@@ -1,3 +1,5 @@
 [GIN] 2020/07/19 - 16:58:44 | 404 |         637ns |       127.0.0.1 | GET      "/hello"
 {"animal":"walrus","level":"warning","msg":"A group of walrus emerges from the ocean","size":10,"time":"2020-07-19T16:58:55+08:00"}
 [GIN] 2020/07/19 - 16:58:55 | 200 |      194.31µs |       127.0.0.1 | GET      "/index"
+{"animal":"walrus","level":"warning","msg":"A group of walrus emerges from the ocean","size":10,"time":"2020-07-19T17:13:04+08:00"}
+[GIN] 2020/07/19 - 17:13:04 | 200 |     293.367µs |       127.0.0.1 | GET      "/index"
