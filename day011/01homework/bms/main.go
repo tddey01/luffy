@@ -35,6 +35,9 @@ func main() {
 		BookGroup.GET("/detele", deleteBookhandler)
 		// day11
 		BookGroup.Any("/edit", editBookHandler)
+
+		//  组合查询
+		BookGroup.GET("/detail/:id", getBookDetailHandler)
 	}
 	r.Run()
 }
@@ -182,4 +185,34 @@ func editBookHandler(c *gin.Context) {
 		// 3 把书籍数据渲染到页面上
 		c.HTML(http.StatusOK, "book/book_edit.html", bookObj)
 	}
+}
+
+// 组合查询
+func getBookDetailHandler(c *gin.Context) {
+	//  1 获取书籍id
+	tmpbookID := c.Param("id") // string类型参数
+	if len(tmpbookID) == 0 {
+		c.JSON(http.StatusOK, gin.H{
+			"err": "请求数据参数有误 Param",
+		})
+		return
+	}
+	bookID, err := strconv.ParseInt(tmpbookID, 10, 64)
+	if err != nil {
+		c.JSON(http.StatusOK, gin.H{
+			"err": "请求数据参数有误 Param",
+		})
+		return
+	}
+	//  2 去数据库查询获得具体的书籍信息
+	bookObj, err := queryBookByID(bookID)
+	if err != nil {
+		c.JSON(http.StatusOK, gin.H{
+			"err": err.Error(),
+		})
+		return
+	}
+	//  3 返回JSON格式数据
+	c.JSON(http.StatusOK, bookObj)
+
 }

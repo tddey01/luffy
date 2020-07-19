@@ -7,11 +7,12 @@ type Book struct {
 	ID    int64   `db:"id"`
 	Title string  `db:"title"`
 	Price float64 `db:"price"`
+	Publisher
 }
 
 // Publisher 作者 地区
 type Publisher struct {
-	ID       int64 `db:"id"`
+	ID       int64  `db:"id"`
 	Province string `db:"province"`
 	City     string `db:"city"`
 }
