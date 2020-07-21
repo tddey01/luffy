@@ -12,5 +12,6 @@ require (
 	github.com/jinzhu/gorm v1.9.14 // indirect
 	github.com/jmoiron/sqlx v1.2.0
 	github.com/nsqio/go-nsq v1.0.8
+	github.com/satori/go.uuid v1.2.0
 	github.com/sirupsen/logrus v1.6.0
 )
