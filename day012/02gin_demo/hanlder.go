@@ -2,31 +2,34 @@ package main
 
 import (
 	"fmt"
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 	ginsession "github.com/tddey01/luffy/day012/gin-session"
-	"net/http"
 )
 
-// UserInfo 用户结构
+// UserInfo 结构体 
 type UserInfo struct {
 	Username string `form:"username"`
 	Password string `form:"password"`
 }
 
-// 校验用户中间件
-// AuthMiddleware 其实就是上线文中取出session data 从session data取到islogin
+// 编写一个校验用户是否登录的中间件
+// 其实就是从上下文中取到session data,从session data取到isLogin
+
+// AuthMiddleware 单独认正
 func AuthMiddleware(c *gin.Context) {
 	// 1. 从上下文中取到session data
 	// 1. 先从上下文中获取session data
 	fmt.Println("in Auth")
 	tmpSD, _ := c.Get(ginsession.SessionContextName)
-	sd := tmpSD.(*ginsession.SessionData)
-	// 从session data取到islogin
+	sd := tmpSD.(ginsession.SessionData)
+	// 2. 从session data取到isLogin
 	fmt.Printf("%#v\n", sd)
 	value, err := sd.Get("isLogin")
 	if err != nil {
 		fmt.Println(err)
-		//  取不到没有登录
+		// 取不到就是没有登录
 		c.Redirect(http.StatusFound, "/login")
 		return
 	}
@@ -52,32 +55,34 @@ func loginHandler(c *gin.Context) {
 		err := c.ShouldBind(&u)
 		if err != nil {
 			c.HTML(http.StatusOK, "login.html", gin.H{
-				"err": "用户名或者密码不能为空",
+				"err": "用户名或密码不能为空",
 			})
 			return
 		}
 		if u.Username == "kn" && u.Password == "123" {
-			//  登录成功 在当前页面这个用户的session data 保存一个简直对， isLogin=true
-			// 1 先要从上下文中获取seesion data
+			// 登陆成功，在当前这个用户的session data 保存一个键值对：isLogin=true
+			// 1. 先从上下文中获取session data
 			tmpSD, ok := c.Get(ginsession.SessionContextName)
 			if !ok {
-				panic("session middleware 中间件")
+				panic("session middleware")
 			}
-			sd := tmpSD.(*ginsession.SessionData)
-			// 2 给session data设置islogin=true
+			sd := tmpSD.(ginsession.SessionData)
+			// 2. 给session data设置isLogin = true
 			sd.Set("isLogin", true)
-			// 跳转到index界面
+			sd.Save()
+			// 跳转到index页面
 			c.Redirect(http.StatusMovedPermanently, toPath)
 		} else {
 			// 密码错误
 			c.HTML(http.StatusOK, "login.html", gin.H{
-				"err": "用户名或者密码错误",
+				"err": "用户名或密码错误",
 			})
 			return
 		}
 	} else {
 		c.HTML(http.StatusOK, "login.html", nil)
 	}
+
 }
 
 func indexHandler(c *gin.Context) {
@@ -88,8 +93,6 @@ func homeHandler(c *gin.Context) {
 	c.HTML(http.StatusOK, "home.html", nil)
 }
 
-func viphandlers(c *gin.Context) {
+func vipHandler(c *gin.Context) {
 	c.HTML(http.StatusOK, "vip.html", nil)
 }
-
-

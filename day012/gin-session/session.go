@@ -2,112 +2,103 @@ package ginsession
 
 import (
 	"fmt"
-	"sync"
-
 	"github.com/gin-gonic/gin"
-	uuid "github.com/satori/go.uuid"
 )
 
 const (
-	SessionCookieName  = "session_id" // session id 在cookie中对应的key
-	SessionContextName = "session"    //session data在gin上下文中对应的key
+	SessionCookieName = "session_id" // sesion_id在Cookie中对应的key
+	SessionContextName = "session" // session data在gin上下文中对应的key
 )
 
-// session  服务
 var (
-	MgrObj *SessionMgr // 定义一个全局的 Session 管理对象 大仓库
+	// MgrObj 全局的Session管理对象（大仓库）
+	MgrObj Mgr
 )
 
-// SessionData 回话标签
-type SessionData struct {
-	ID     string
-	Data   map[string]interface{}
-	rwLock sync.RWMutex // 读写锁，锁的是上面的Data
-	// 过期时间
+// 自己实现的gin框架的session中间件
+
+// Session服务
+
+// SessionData 表示一个具体的用户Session数据
+
+// 课上版本存在问题：
+// 1. 调用save的时候不管秀没有修改都会保存数据库 ， sessionData定义一个标志位：r.modifyFlag
+// 2. 从redis中加载数据，会存在一个问题 sync.Once 用来加载一次！
+// 3. 过期时间
+
+type Option struct {
+	MaxAge int
+	Path string
+	Domain string
+	Secure bool
+	HttpOnly bool
 }
 
-// NewSessionData 构造函数 工厂模式
-func NewSessionData(id string) *SessionData {
-	return &SessionData{
-		ID:   id,
-		Data: make(map[string]interface{}, 8),
+
+type SessionData interface {
+	GetID()string // 返回自己的ID
+	Get(key string)(value interface{}, err error)
+	Set(key string, value interface{})
+	Del(key string)
+	Save() // 保存
+	SetExpire(int) // 设置过期时间
+}
+// SessionData支持的操作
+
+
+// Mgr 所有类型的大仓库都应该遵循的接口
+type Mgr interface {
+	Init(addr string, options ...string) // 所有支持的后端都必须实现Init()来执行具体的连接
+	GetSessionData(sessionID string)(sd SessionData, err error)
+	CreateSession()(sd SessionData)
+}
+
+func InitMgr(name string, addr string, options...string) {
+	switch name {
+	case "memory":
+		MgrObj = NewMemoryMgr()
+	case "redis":
+		MgrObj = NewRedisMgr()
 	}
+	MgrObj.Init(addr, options...) // 初始化Mgr
 }
 
-// SessionMgr 是一个全局的Session 管理
-type SessionMgr struct {
-	Session map[string]*SessionData
-	rwLock  sync.RWMutex
-}
 
-func IntMgr() {
-	MgrObj = &SessionMgr{
-		Session: make(map[string]*SessionData, 1024), // 初始化1024红色小框 用来存储用户的seesion data
-	}
-}
-
-//func IntMgr(name string, addr string, options...string) {
-//	MgrObj =  &SessionMgr{
-//		Session:make(map[string]*SessionData, 1024), // 初始化1024红色的小框用来存取用户的session data
-//	}
-//}
-// GetSessionData  获取用户sessionid
-func (m *SessionMgr) GetSessionData(sessionID string) (sd *SessionData, err error) {
-	// 取之前枷锁
-	m.rwLock.RLock()
-	defer m.rwLock.RUnlock()
-	sd, ok := m.Session[sessionID]
-	if !ok {
-		err = fmt.Errorf("invalid seesion id")
-		return
-	}
-	return
-}
-
-// CreateSession 创建一条Session记录
-func (m *SessionMgr) CreateSession() (sd *SessionData) {
-	// 1. 造一个sessionID
-	uuidObj := uuid.NewV4()
-	//  2  造一个和其他对应的SeessionData
-	sd = NewSessionData(uuidObj.String())
-	m.Session[sd.ID] = sd // 把新创建的session data保存收到大仓库中
-	//  3 返回SessionData
-	return
-}
-
-//  实现一个gin框架的中间件
-// 所有流经过我和中间件的请求， 他的上下文中肯定会有一个Session --> session data
-func SessionMiddleware(mgrObj *SessionMgr) gin.HandlerFunc {
+// 实现一个gin框架的中间件
+// 所有流经我这个中间件的请求，它的上下文中肯定会有一个session -> session data
+func SessionMiddleware(mgrObj Mgr, option *Option)gin.HandlerFunc {
 	if mgrObj == nil {
-		panic("must call InitMgr before use it 请初始化")
+		panic("must call InitMgr before use it.")
 	}
-	return func(c *gin.Context) {
-		//  1 从请求中cookie获取session_id
-		var sd *SessionData // session data
+	return func(c *gin.Context){
+		// 1. 从请求的Cookie中获取session_id
+		var sd SessionData // session data
 		sessionID, err := c.Cookie(SessionCookieName)
 		fmt.Println(sessionID)
 		if err != nil {
-			//  1.1 取不到session_id --> 给这个新的用户创建新的session_id 同事分配一个session_id
+			// 1.1 取不到session_id -> 给这个新用户创建一个新的session data，同时分配一个session_id
 			sd = mgrObj.CreateSession()
-			sessionID = sd.ID
+			sessionID = sd.GetID()
 			fmt.Println("取不到session_id，创建一个新的", sessionID)
-		} else {
-			//	1.2 取到session_id
-			//	2 根据session_id去session大仓库中取到对应的session_data
+		}else {
+			// 1.2 取到session_id
+			// 2. 根据session_id去Session大仓库中取到对应的session data
 			sd, err = mgrObj.GetSessionData(sessionID)
 			if err != nil {
-				//	2.1 根据用户传过来的session_id在仓中取不到session data
-				sd = mgrObj.CreateSession()
-				//	 2.2 更新哦用户cookie中保存的那个session_id
-				sessionID = sd.ID
+				// 2.1 根据用户传过来的session_id在大仓库中根本取不到session data
+				sd = mgrObj.CreateSession() // sd
+				// 2.2 更新用户Cookie中保存的那个session_id
+				sessionID = sd.GetID()
 				fmt.Println("session_id取不到session data,分配一个新的", sessionID)
 			}
+			fmt.Println("session_id未过期", sessionID)
 		}
-		//	3 如果实现了让后续所有的处理方法都能拿到session data
-		//  4 利用gin框架c.set("session","session data)
-		c.Set(SessionContextName, sd)
-		// 在gin框架中 要会写cookie必须处理请求的函数返回之前
-		c.SetCookie(SessionCookieName, sessionID, 3600, "/", "127.0.0.1", false, true)
-		c.Next() // 执行后续的请求处理方法 c.HTML() 时已经把相应头写好了
+		sd.SetExpire(option.MaxAge) // 设置session data过期时间
+		// 3. 如何实现让后续所有的处理请求的方法都能拿到session data
+		// 3. 利用gin的c.Set("session", session data)
+		c.Set(SessionContextName, sd) // 保存到上下文
+		// 在gin框架中，要回写Cookie必须在处理请求的函数返回之前
+		c.SetCookie(SessionCookieName, sessionID, option.MaxAge, option.Path, option.Domain, option.Secure, option.HttpOnly)
+		c.Next() // 执行后续的请求处理方法 c.HTML()时已经把响应头写好了
 	}
 }
