@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	ginsession "github.com/tddey01/luffy/day012/gin-session"
 	"net/http"
+	_ "github.com/sony/sonyflake"
 )
 
 // 测试 session服务 gin demo

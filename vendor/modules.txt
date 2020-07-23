@@ -66,6 +66,9 @@ github.com/satori/go.uuid
 # github.com/sirupsen/logrus v1.6.0
 ## explicit
 github.com/sirupsen/logrus
+# github.com/sony/sonyflake v1.0.0
+## explicit
+github.com/sony/sonyflake
 # github.com/ugorji/go/codec v1.1.7
 github.com/ugorji/go/codec
 # golang.org/x/sys v0.0.0-20200323222414-85ca7c5b95cd
