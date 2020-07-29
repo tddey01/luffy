@@ -1,0 +1,1030 @@
+
+
+
+==> ./kafkaServer-gc.log.0.current <==
+2020-07-29T17:12:14.684+0800: 1407.185: [GC pause (Metadata GC Threshold) (young) (initial-mark), 0.0326796 secs]
+   [Parallel Time: 22.9 ms, GC Workers: 15]
+      [GC Worker Start (ms): Min: 1407191.0, Avg: 1407191.9, Max: 1407194.4, Diff: 3.4]
+      [Ext Root Scanning (ms): Min: 7.0, Avg: 10.1, Max: 19.5, Diff: 12.5, Sum: 150.9]
+      [Update RS (ms): Min: 0.0, Avg: 1.4, Max: 6.7, Diff: 6.7, Sum: 20.6]
+         [Processed Buffers: Min: 0, Avg: 2.2, Max: 10, Diff: 10, Sum: 33]
+      [Scan RS (ms): Min: 0.0, Avg: 0.1, Max: 0.2, Diff: 0.2, Sum: 1.0]
+      [Code Root Scanning (ms): Min: 0.0, Avg: 0.2, Max: 0.9, Diff: 0.9, Sum: 3.0]
+      [Object Copy (ms): Min: 0.1, Avg: 7.7, Max: 9.7, Diff: 9.5, Sum: 115.5]
+      [Termination (ms): Min: 0.0, Avg: 0.6, Max: 0.7, Diff: 0.7, Sum: 8.5]
+         [Termination Attempts: Min: 1, Avg: 54.5, Max: 81, Diff: 80, Sum: 817]
+      [GC Worker Other (ms): Min: 0.0, Avg: 0.1, Max: 0.6, Diff: 0.5, Sum: 1.0]
+      [GC Worker Total (ms): Min: 17.5, Avg: 20.0, Max: 20.9, Diff: 3.4, Sum: 300.5]
+      [GC Worker End (ms): Min: 1407211.9, Avg: 1407211.9, Max: 1407212.0, Diff: 0.1]
+   [Code Root Fixup: 0.0 ms]
+   [Code Root Purge: 0.1 ms]
+   [Clear CT: 1.2 ms]
+   [Other: 8.4 ms]
+      [Choose CSet: 0.0 ms]
+      [Ref Proc: 2.2 ms]
+      [Ref Enq: 0.0 ms]
+      [Redirty Cards: 1.0 ms]
+      [Humongous Register: 0.0 ms]
+      [Humongous Reclaim: 0.0 ms]
+      [Free CSet: 0.2 ms]
+   [Eden: 18.0M(44.0M)->0.0B(44.0M) Survivors: 7168.0K->7168.0K Heap: 172.6M(1024.0M)->159.4M(1024.0M)]
+ [Times: user=0.14 sys=0.08, real=0.03 secs]
+2020-07-29T17:12:14.717+0800: 1407.218: [GC concurrent-root-region-scan-start]
+2020-07-29T17:12:14.721+0800: 1407.222: [GC concurrent-root-region-scan-end, 0.0043404 secs]
+2020-07-29T17:12:14.721+0800: 1407.222: [GC concurrent-mark-start]
+2020-07-29T17:12:14.727+0800: 1407.228: [GC concurrent-mark-end, 0.0062145 secs]
+2020-07-29T17:12:14.728+0800: 1407.229: [GC remark 2020-07-29T17:12:14.728+0800: 1407.229: [Finalize Marking, 0.0022192 secs] 2020-07-29T17:12:14.730+0800: 1407.231: [GC ref-proc, 0.0011386 secs] 2020-07-29T17:12:14.732+0800: 1407.232: [Unloading, 0.0211842 secs], 0.0292645 secs]
+ [Times: user=0.09 sys=0.15, real=0.03 secs]
+2020-07-29T17:12:14.758+0800: 1407.259: [GC cleanup 159M->150M(1024M), 0.0055297 secs]
+ [Times: user=0.01 sys=0.01, real=0.01 secs]
+
+==> ./controller.log <==
+[2020-07-29 17:13:57,141] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:13:57,142] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+==> ./kafkaServer.out <==
+[2020-07-29 17:18:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./server.log <==
+[2020-07-29 17:18:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./controller.log <==
+[2020-07-29 17:18:57,144] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:18:57,144] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2020-07-29 17:23:57,145] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:23:57,146] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+==> ./kafkaServer.out <==
+[2020-07-29 17:28:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./server.log <==
+[2020-07-29 17:28:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./controller.log <==
+[2020-07-29 17:28:57,148] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:28:57,149] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2020-07-29 17:33:57,151] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:33:57,151] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+
+
+
+==> ./kafkaServer-gc.log.0.current <==
+2020-07-29T17:12:14.684+0800: 1407.185: [GC pause (Metadata GC Threshold) (young) (initial-mark), 0.0326796 secs]
+   [Parallel Time: 22.9 ms, GC Workers: 15]
+      [GC Worker Start (ms): Min: 1407191.0, Avg: 1407191.9, Max: 1407194.4, Diff: 3.4]
+      [Ext Root Scanning (ms): Min: 7.0, Avg: 10.1, Max: 19.5, Diff: 12.5, Sum: 150.9]
+      [Update RS (ms): Min: 0.0, Avg: 1.4, Max: 6.7, Diff: 6.7, Sum: 20.6]
+         [Processed Buffers: Min: 0, Avg: 2.2, Max: 10, Diff: 10, Sum: 33]
+      [Scan RS (ms): Min: 0.0, Avg: 0.1, Max: 0.2, Diff: 0.2, Sum: 1.0]
+      [Code Root Scanning (ms): Min: 0.0, Avg: 0.2, Max: 0.9, Diff: 0.9, Sum: 3.0]
+      [Object Copy (ms): Min: 0.1, Avg: 7.7, Max: 9.7, Diff: 9.5, Sum: 115.5]
+      [Termination (ms): Min: 0.0, Avg: 0.6, Max: 0.7, Diff: 0.7, Sum: 8.5]
+         [Termination Attempts: Min: 1, Avg: 54.5, Max: 81, Diff: 80, Sum: 817]
+      [GC Worker Other (ms): Min: 0.0, Avg: 0.1, Max: 0.6, Diff: 0.5, Sum: 1.0]
+      [GC Worker Total (ms): Min: 17.5, Avg: 20.0, Max: 20.9, Diff: 3.4, Sum: 300.5]
+      [GC Worker End (ms): Min: 1407211.9, Avg: 1407211.9, Max: 1407212.0, Diff: 0.1]
+   [Code Root Fixup: 0.0 ms]
+   [Code Root Purge: 0.1 ms]
+   [Clear CT: 1.2 ms]
+   [Other: 8.4 ms]
+      [Choose CSet: 0.0 ms]
+      [Ref Proc: 2.2 ms]
+      [Ref Enq: 0.0 ms]
+      [Redirty Cards: 1.0 ms]
+      [Humongous Register: 0.0 ms]
+      [Humongous Reclaim: 0.0 ms]
+      [Free CSet: 0.2 ms]
+   [Eden: 18.0M(44.0M)->0.0B(44.0M) Survivors: 7168.0K->7168.0K Heap: 172.6M(1024.0M)->159.4M(1024.0M)]
+ [Times: user=0.14 sys=0.08, real=0.03 secs]
+2020-07-29T17:12:14.717+0800: 1407.218: [GC concurrent-root-region-scan-start]
+2020-07-29T17:12:14.721+0800: 1407.222: [GC concurrent-root-region-scan-end, 0.0043404 secs]
+2020-07-29T17:12:14.721+0800: 1407.222: [GC concurrent-mark-start]
+2020-07-29T17:12:14.727+0800: 1407.228: [GC concurrent-mark-end, 0.0062145 secs]
+2020-07-29T17:12:14.728+0800: 1407.229: [GC remark 2020-07-29T17:12:14.728+0800: 1407.229: [Finalize Marking, 0.0022192 secs] 2020-07-29T17:12:14.730+0800: 1407.231: [GC ref-proc, 0.0011386 secs] 2020-07-29T17:12:14.732+0800: 1407.232: [Unloading, 0.0211842 secs], 0.0292645 secs]
+ [Times: user=0.09 sys=0.15, real=0.03 secs]
+2020-07-29T17:12:14.758+0800: 1407.259: [GC cleanup 159M->150M(1024M), 0.0055297 secs]
+ [Times: user=0.01 sys=0.01, real=0.01 secs]
+
+==> ./controller.log <==
+[2020-07-29 17:13:57,141] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:13:57,142] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+==> ./kafkaServer.out <==
+[2020-07-29 17:18:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./server.log <==
+[2020-07-29 17:18:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./controller.log <==
+[2020-07-29 17:18:57,144] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:18:57,144] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2020-07-29 17:23:57,145] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:23:57,146] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+==> ./kafkaServer.out <==
+[2020-07-29 17:28:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./server.log <==
+[2020-07-29 17:28:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./controller.log <==
+[2020-07-29 17:28:57,148] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:28:57,149] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2020-07-29 17:33:57,151] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:33:57,151] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+sdfw
+sdfw
+
+
+==> ./kafkaServer-gc.log.0.current <==
+2020-07-29T17:12:14.684+0800: 1407.185: [GC pause (Metadata GC Threshold) (young) (initial-mark), 0.0326796 secs]
+   [Parallel Time: 22.9 ms, GC Workers: 15]
+      [GC Worker Start (ms): Min: 1407191.0, Avg: 1407191.9, Max: 1407194.4, Diff: 3.4]
+      [Ext Root Scanning (ms): Min: 7.0, Avg: 10.1, Max: 19.5, Diff: 12.5, Sum: 150.9]
+      [Update RS (ms): Min: 0.0, Avg: 1.4, Max: 6.7, Diff: 6.7, Sum: 20.6]
+         [Processed Buffers: Min: 0, Avg: 2.2, Max: 10, Diff: 10, Sum: 33]
+      [Scan RS (ms): Min: 0.0, Avg: 0.1, Max: 0.2, Diff: 0.2, Sum: 1.0]
+      [Code Root Scanning (ms): Min: 0.0, Avg: 0.2, Max: 0.9, Diff: 0.9, Sum: 3.0]
+      [Object Copy (ms): Min: 0.1, Avg: 7.7, Max: 9.7, Diff: 9.5, Sum: 115.5]
+      [Termination (ms): Min: 0.0, Avg: 0.6, Max: 0.7, Diff: 0.7, Sum: 8.5]
+         [Termination Attempts: Min: 1, Avg: 54.5, Max: 81, Diff: 80, Sum: 817]
+      [GC Worker Other (ms): Min: 0.0, Avg: 0.1, Max: 0.6, Diff: 0.5, Sum: 1.0]
+      [GC Worker Total (ms): Min: 17.5, Avg: 20.0, Max: 20.9, Diff: 3.4, Sum: 300.5]
+      [GC Worker End (ms): Min: 1407211.9, Avg: 1407211.9, Max: 1407212.0, Diff: 0.1]
+   [Code Root Fixup: 0.0 ms]
+   [Code Root Purge: 0.1 ms]
+   [Clear CT: 1.2 ms]
+   [Other: 8.4 ms]
+      [Choose CSet: 0.0 ms]
+      [Ref Proc: 2.2 ms]
+      [Ref Enq: 0.0 ms]
+      [Redirty Cards: 1.0 ms]
+      [Humongous Register: 0.0 ms]
+      [Humongous Reclaim: 0.0 ms]
+      [Free CSet: 0.2 ms]
+   [Eden: 18.0M(44.0M)->0.0B(44.0M) Survivors: 7168.0K->7168.0K Heap: 172.6M(1024.0M)->159.4M(1024.0M)]
+ [Times: user=0.14 sys=0.08, real=0.03 secs]
+2020-07-29T17:12:14.717+0800: 1407.218: [GC concurrent-root-region-scan-start]
+2020-07-29T17:12:14.721+0800: 1407.222: [GC concurrent-root-region-scan-end, 0.0043404 secs]
+2020-07-29T17:12:14.721+0800: 1407.222: [GC concurrent-mark-start]
+2020-07-29T17:12:14.727+0800: 1407.228: [GC concurrent-mark-end, 0.0062145 secs]
+2020-07-29T17:12:14.728+0800: 1407.229: [GC remark 2020-07-29T17:12:14.728+0800: 1407.229: [Finalize Marking, 0.0022192 secs] 2020-07-29T17:12:14.730+0800: 1407.231: [GC ref-proc, 0.0011386 secs] 2020-07-29T17:12:14.732+0800: 1407.232: [Unloading, 0.0211842 secs], 0.0292645 secs]
+ [Times: user=0.09 sys=0.15, real=0.03 secs]
+2020-07-29T17:12:14.758+0800: 1407.259: [GC cleanup 159M->150M(1024M), 0.0055297 secs]
+ [Times: user=0.01 sys=0.01, real=0.01 secs]
+
+==> ./controller.log <==
+[2020-07-29 17:13:57,141] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:13:57,142] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+==> ./kafkaServer.out <==
+[2020-07-29 17:18:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./server.log <==
+[2020-07-29 17:18:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./controller.log <==
+[2020-07-29 17:18:57,144] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:18:57,144] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2020-07-29 17:23:57,145] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:23:57,146] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+==> ./kafkaServer.out <==
+[2020-07-29 17:28:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./server.log <==
+[2020-07-29 17:28:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./controller.log <==
+[2020-07-29 17:28:57,148] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:28:57,149] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2020-07-29 17:33:57,151] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:33:57,151] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+sfdwsdfw
+
+
+
+==> ./kafkaServer-gc.log.0.current <==
+2020-07-29T17:12:14.684+0800: 1407.185: [GC pause (Metadata GC Threshold) (young) (initial-mark), 0.0326796 secs]
+   [Parallel Time: 22.9 ms, GC Workers: 15]
+      [GC Worker Start (ms): Min: 1407191.0, Avg: 1407191.9, Max: 1407194.4, Diff: 3.4]
+      [Ext Root Scanning (ms): Min: 7.0, Avg: 10.1, Max: 19.5, Diff: 12.5, Sum: 150.9]
+      [Update RS (ms): Min: 0.0, Avg: 1.4, Max: 6.7, Diff: 6.7, Sum: 20.6]
+         [Processed Buffers: Min: 0, Avg: 2.2, Max: 10, Diff: 10, Sum: 33]
+      [Scan RS (ms): Min: 0.0, Avg: 0.1, Max: 0.2, Diff: 0.2, Sum: 1.0]
+      [Code Root Scanning (ms): Min: 0.0, Avg: 0.2, Max: 0.9, Diff: 0.9, Sum: 3.0]
+      [Object Copy (ms): Min: 0.1, Avg: 7.7, Max: 9.7, Diff: 9.5, Sum: 115.5]
+      [Termination (ms): Min: 0.0, Avg: 0.6, Max: 0.7, Diff: 0.7, Sum: 8.5]
+         [Termination Attempts: Min: 1, Avg: 54.5, Max: 81, Diff: 80, Sum: 817]
+      [GC Worker Other (ms): Min: 0.0, Avg: 0.1, Max: 0.6, Diff: 0.5, Sum: 1.0]
+      [GC Worker Total (ms): Min: 17.5, Avg: 20.0, Max: 20.9, Diff: 3.4, Sum: 300.5]
+      [GC Worker End (ms): Min: 1407211.9, Avg: 1407211.9, Max: 1407212.0, Diff: 0.1]
+   [Code Root Fixup: 0.0 ms]
+   [Code Root Purge: 0.1 ms]
+   [Clear CT: 1.2 ms]
+   [Other: 8.4 ms]
+      [Choose CSet: 0.0 ms]
+      [Ref Proc: 2.2 ms]
+      [Ref Enq: 0.0 ms]
+      [Redirty Cards: 1.0 ms]
+      [Humongous Register: 0.0 ms]
+      [Humongous Reclaim: 0.0 ms]
+      [Free CSet: 0.2 ms]
+   [Eden: 18.0M(44.0M)->0.0B(44.0M) Survivors: 7168.0K->7168.0K Heap: 172.6M(1024.0M)->159.4M(1024.0M)]
+ [Times: user=0.14 sys=0.08, real=0.03 secs]
+2020-07-29T17:12:14.717+0800: 1407.218: [GC concurrent-root-region-scan-start]
+2020-07-29T17:12:14.721+0800: 1407.222: [GC concurrent-root-region-scan-end, 0.0043404 secs]
+2020-07-29T17:12:14.721+0800: 1407.222: [GC concurrent-mark-start]
+2020-07-29T17:12:14.727+0800: 1407.228: [GC concurrent-mark-end, 0.0062145 secs]
+2020-07-29T17:12:14.728+0800: 1407.229: [GC remark 2020-07-29T17:12:14.728+0800: 1407.229: [Finalize Marking, 0.0022192 secs] 2020-07-29T17:12:14.730+0800: 1407.231: [GC ref-proc, 0.0011386 secs] 2020-07-29T17:12:14.732+0800: 1407.232: [Unloading, 0.0211842 secs], 0.0292645 secs]
+ [Times: user=0.09 sys=0.15, real=0.03 secs]
+2020-07-29T17:12:14.758+0800: 1407.259: [GC cleanup 159M->150M(1024M), 0.0055297 secs]
+ [Times: user=0.01 sys=0.01, real=0.01 secs]
+
+==> ./controller.log <==
+[2020-07-29 17:13:57,141] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:13:57,142] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+==> ./kafkaServer.out <==
+[2020-07-29 17:18:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./server.log <==
+[2020-07-29 17:18:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./controller.log <==
+[2020-07-29 17:18:57,144] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:18:57,144] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2020-07-29 17:23:57,145] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:23:57,146] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+==> ./kafkaServer.out <==
+[2020-07-29 17:28:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./server.log <==
+[2020-07-29 17:28:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./controller.log <==
+[2020-07-29 17:28:57,148] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:28:57,149] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2020-07-29 17:33:57,151] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:33:57,151] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+
+
+
+==> ./kafkaServer-gc.log.0.current <==
+2020-07-29T17:12:14.684+0800: 1407.185: [GC pause (Metadata GC Threshold) (young) (initial-mark), 0.0326796 secs]
+   [Parallel Time: 22.9 ms, GC Workers: 15]
+      [GC Worker Start (ms): Min: 1407191.0, Avg: 1407191.9, Max: 1407194.4, Diff: 3.4]
+      [Ext Root Scanning (ms): Min: 7.0, Avg: 10.1, Max: 19.5, Diff: 12.5, Sum: 150.9]
+      [Update RS (ms): Min: 0.0, Avg: 1.4, Max: 6.7, Diff: 6.7, Sum: 20.6]
+         [Processed Buffers: Min: 0, Avg: 2.2, Max: 10, Diff: 10, Sum: 33]
+      [Scan RS (ms): Min: 0.0, Avg: 0.1, Max: 0.2, Diff: 0.2, Sum: 1.0]
+      [Code Root Scanning (ms): Min: 0.0, Avg: 0.2, Max: 0.9, Diff: 0.9, Sum: 3.0]
+      [Object Copy (ms): Min: 0.1, Avg: 7.7, Max: 9.7, Diff: 9.5, Sum: 115.5]
+      [Termination (ms): Min: 0.0, Avg: 0.6, Max: 0.7, Diff: 0.7, Sum: 8.5]
+         [Termination Attempts: Min: 1, Avg: 54.5, Max: 81, Diff: 80, Sum: 817]
+      [GC Worker Other (ms): Min: 0.0, Avg: 0.1, Max: 0.6, Diff: 0.5, Sum: 1.0]
+      [GC Worker Total (ms): Min: 17.5, Avg: 20.0, Max: 20.9, Diff: 3.4, Sum: 300.5]
+      [GC Worker End (ms): Min: 1407211.9, Avg: 1407211.9, Max: 1407212.0, Diff: 0.1]
+   [Code Root Fixup: 0.0 ms]
+   [Code Root Purge: 0.1 ms]
+   [Clear CT: 1.2 ms]
+   [Other: 8.4 ms]
+      [Choose CSet: 0.0 ms]
+      [Ref Proc: 2.2 ms]
+      [Ref Enq: 0.0 ms]
+      [Redirty Cards: 1.0 ms]
+      [Humongous Register: 0.0 ms]
+      [Humongous Reclaim: 0.0 ms]
+      [Free CSet: 0.2 ms]
+   [Eden: 18.0M(44.0M)->0.0B(44.0M) Survivors: 7168.0K->7168.0K Heap: 172.6M(1024.0M)->159.4M(1024.0M)]
+ [Times: user=0.14 sys=0.08, real=0.03 secs]
+2020-07-29T17:12:14.717+0800: 1407.218: [GC concurrent-root-region-scan-start]
+2020-07-29T17:12:14.721+0800: 1407.222: [GC concurrent-root-region-scan-end, 0.0043404 secs]
+2020-07-29T17:12:14.721+0800: 1407.222: [GC concurrent-mark-start]
+2020-07-29T17:12:14.727+0800: 1407.228: [GC concurrent-mark-end, 0.0062145 secs]
+2020-07-29T17:12:14.728+0800: 1407.229: [GC remark 2020-07-29T17:12:14.728+0800: 1407.229: [Finalize Marking, 0.0022192 secs] 2020-07-29T17:12:14.730+0800: 1407.231: [GC ref-proc, 0.0011386 secs] 2020-07-29T17:12:14.732+0800: 1407.232: [Unloading, 0.0211842 secs], 0.0292645 secs]
+ [Times: user=0.09 sys=0.15, real=0.03 secs]
+2020-07-29T17:12:14.758+0800: 1407.259: [GC cleanup 159M->150M(1024M), 0.0055297 secs]
+ [Times: user=0.01 sys=0.01, real=0.01 secs]
+
+==> ./controller.log <==
+[2020-07-29 17:13:57,141] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:13:57,142] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+==> ./kafkaServer.out <==
+[2020-07-29 17:18:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./server.log <==
+[2020-07-29 17:18:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./controller.log <==
+[2020-07-29 17:18:57,144] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:18:57,144] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2020-07-29 17:23:57,145] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:23:57,146] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+==> ./kafkaServer.out <==
+[2020-07-29 17:28:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./server.log <==
+[2020-07-29 17:28:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./controller.log <==
+[2020-07-29 17:28:57,148] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:28:57,149] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2020-07-29 17:33:57,151] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:33:57,151] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+sdfw
+sdfw
+
+
+==> ./kafkaServer-gc.log.0.current <==
+2020-07-29T17:12:14.684+0800: 1407.185: [GC pause (Metadata GC Threshold) (young) (initial-mark), 0.0326796 secs]
+   [Parallel Time: 22.9 ms, GC Workers: 15]
+      [GC Worker Start (ms): Min: 1407191.0, Avg: 1407191.9, Max: 1407194.4, Diff: 3.4]
+      [Ext Root Scanning (ms): Min: 7.0, Avg: 10.1, Max: 19.5, Diff: 12.5, Sum: 150.9]
+      [Update RS (ms): Min: 0.0, Avg: 1.4, Max: 6.7, Diff: 6.7, Sum: 20.6]
+         [Processed Buffers: Min: 0, Avg: 2.2, Max: 10, Diff: 10, Sum: 33]
+      [Scan RS (ms): Min: 0.0, Avg: 0.1, Max: 0.2, Diff: 0.2, Sum: 1.0]
+      [Code Root Scanning (ms): Min: 0.0, Avg: 0.2, Max: 0.9, Diff: 0.9, Sum: 3.0]
+      [Object Copy (ms): Min: 0.1, Avg: 7.7, Max: 9.7, Diff: 9.5, Sum: 115.5]
+      [Termination (ms): Min: 0.0, Avg: 0.6, Max: 0.7, Diff: 0.7, Sum: 8.5]
+         [Termination Attempts: Min: 1, Avg: 54.5, Max: 81, Diff: 80, Sum: 817]
+      [GC Worker Other (ms): Min: 0.0, Avg: 0.1, Max: 0.6, Diff: 0.5, Sum: 1.0]
+      [GC Worker Total (ms): Min: 17.5, Avg: 20.0, Max: 20.9, Diff: 3.4, Sum: 300.5]
+      [GC Worker End (ms): Min: 1407211.9, Avg: 1407211.9, Max: 1407212.0, Diff: 0.1]
+   [Code Root Fixup: 0.0 ms]
+   [Code Root Purge: 0.1 ms]
+   [Clear CT: 1.2 ms]
+   [Other: 8.4 ms]
+      [Choose CSet: 0.0 ms]
+      [Ref Proc: 2.2 ms]
+      [Ref Enq: 0.0 ms]
+      [Redirty Cards: 1.0 ms]
+      [Humongous Register: 0.0 ms]
+      [Humongous Reclaim: 0.0 ms]
+      [Free CSet: 0.2 ms]
+   [Eden: 18.0M(44.0M)->0.0B(44.0M) Survivors: 7168.0K->7168.0K Heap: 172.6M(1024.0M)->159.4M(1024.0M)]
+ [Times: user=0.14 sys=0.08, real=0.03 secs]
+2020-07-29T17:12:14.717+0800: 1407.218: [GC concurrent-root-region-scan-start]
+2020-07-29T17:12:14.721+0800: 1407.222: [GC concurrent-root-region-scan-end, 0.0043404 secs]
+2020-07-29T17:12:14.721+0800: 1407.222: [GC concurrent-mark-start]
+2020-07-29T17:12:14.727+0800: 1407.228: [GC concurrent-mark-end, 0.0062145 secs]
+2020-07-29T17:12:14.728+0800: 1407.229: [GC remark 2020-07-29T17:12:14.728+0800: 1407.229: [Finalize Marking, 0.0022192 secs] 2020-07-29T17:12:14.730+0800: 1407.231: [GC ref-proc, 0.0011386 secs] 2020-07-29T17:12:14.732+0800: 1407.232: [Unloading, 0.0211842 secs], 0.0292645 secs]
+ [Times: user=0.09 sys=0.15, real=0.03 secs]
+2020-07-29T17:12:14.758+0800: 1407.259: [GC cleanup 159M->150M(1024M), 0.0055297 secs]
+ [Times: user=0.01 sys=0.01, real=0.01 secs]
+
+==> ./controller.log <==
+[2020-07-29 17:13:57,141] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:13:57,142] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+==> ./kafkaServer.out <==
+[2020-07-29 17:18:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./server.log <==
+[2020-07-29 17:18:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./controller.log <==
+[2020-07-29 17:18:57,144] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:18:57,144] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2020-07-29 17:23:57,145] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:23:57,146] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+==> ./kafkaServer.out <==
+[2020-07-29 17:28:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./server.log <==
+[2020-07-29 17:28:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./controller.log <==
+[2020-07-29 17:28:57,148] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:28:57,149] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2020-07-29 17:33:57,151] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:33:57,151] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+sfdwsdfw
+
+
+
+==> ./kafkaServer-gc.log.0.current <==
+2020-07-29T17:12:14.684+0800: 1407.185: [GC pause (Metadata GC Threshold) (young) (initial-mark), 0.0326796 secs]
+   [Parallel Time: 22.9 ms, GC Workers: 15]
+      [GC Worker Start (ms): Min: 1407191.0, Avg: 1407191.9, Max: 1407194.4, Diff: 3.4]
+      [Ext Root Scanning (ms): Min: 7.0, Avg: 10.1, Max: 19.5, Diff: 12.5, Sum: 150.9]
+      [Update RS (ms): Min: 0.0, Avg: 1.4, Max: 6.7, Diff: 6.7, Sum: 20.6]
+         [Processed Buffers: Min: 0, Avg: 2.2, Max: 10, Diff: 10, Sum: 33]
+      [Scan RS (ms): Min: 0.0, Avg: 0.1, Max: 0.2, Diff: 0.2, Sum: 1.0]
+      [Code Root Scanning (ms): Min: 0.0, Avg: 0.2, Max: 0.9, Diff: 0.9, Sum: 3.0]
+      [Object Copy (ms): Min: 0.1, Avg: 7.7, Max: 9.7, Diff: 9.5, Sum: 115.5]
+      [Termination (ms): Min: 0.0, Avg: 0.6, Max: 0.7, Diff: 0.7, Sum: 8.5]
+         [Termination Attempts: Min: 1, Avg: 54.5, Max: 81, Diff: 80, Sum: 817]
+      [GC Worker Other (ms): Min: 0.0, Avg: 0.1, Max: 0.6, Diff: 0.5, Sum: 1.0]
+      [GC Worker Total (ms): Min: 17.5, Avg: 20.0, Max: 20.9, Diff: 3.4, Sum: 300.5]
+      [GC Worker End (ms): Min: 1407211.9, Avg: 1407211.9, Max: 1407212.0, Diff: 0.1]
+   [Code Root Fixup: 0.0 ms]
+   [Code Root Purge: 0.1 ms]
+   [Clear CT: 1.2 ms]
+   [Other: 8.4 ms]
+      [Choose CSet: 0.0 ms]
+      [Ref Proc: 2.2 ms]
+      [Ref Enq: 0.0 ms]
+      [Redirty Cards: 1.0 ms]
+      [Humongous Register: 0.0 ms]
+      [Humongous Reclaim: 0.0 ms]
+      [Free CSet: 0.2 ms]
+   [Eden: 18.0M(44.0M)->0.0B(44.0M) Survivors: 7168.0K->7168.0K Heap: 172.6M(1024.0M)->159.4M(1024.0M)]
+ [Times: user=0.14 sys=0.08, real=0.03 secs]
+2020-07-29T17:12:14.717+0800: 1407.218: [GC concurrent-root-region-scan-start]
+2020-07-29T17:12:14.721+0800: 1407.222: [GC concurrent-root-region-scan-end, 0.0043404 secs]
+2020-07-29T17:12:14.721+0800: 1407.222: [GC concurrent-mark-start]
+2020-07-29T17:12:14.727+0800: 1407.228: [GC concurrent-mark-end, 0.0062145 secs]
+2020-07-29T17:12:14.728+0800: 1407.229: [GC remark 2020-07-29T17:12:14.728+0800: 1407.229: [Finalize Marking, 0.0022192 secs] 2020-07-29T17:12:14.730+0800: 1407.231: [GC ref-proc, 0.0011386 secs] 2020-07-29T17:12:14.732+0800: 1407.232: [Unloading, 0.0211842 secs], 0.0292645 secs]
+ [Times: user=0.09 sys=0.15, real=0.03 secs]
+2020-07-29T17:12:14.758+0800: 1407.259: [GC cleanup 159M->150M(1024M), 0.0055297 secs]
+ [Times: user=0.01 sys=0.01, real=0.01 secs]
+
+==> ./controller.log <==
+[2020-07-29 17:13:57,141] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:13:57,142] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+==> ./kafkaServer.out <==
+[2020-07-29 17:18:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./server.log <==
+[2020-07-29 17:18:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./controller.log <==
+[2020-07-29 17:18:57,144] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:18:57,144] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2020-07-29 17:23:57,145] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:23:57,146] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+==> ./kafkaServer.out <==
+[2020-07-29 17:28:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./server.log <==
+[2020-07-29 17:28:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./controller.log <==
+[2020-07-29 17:28:57,148] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:28:57,149] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2020-07-29 17:33:57,151] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:33:57,151] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+
+
+
+==> ./kafkaServer-gc.log.0.current <==
+2020-07-29T17:12:14.684+0800: 1407.185: [GC pause (Metadata GC Threshold) (young) (initial-mark), 0.0326796 secs]
+   [Parallel Time: 22.9 ms, GC Workers: 15]
+      [GC Worker Start (ms): Min: 1407191.0, Avg: 1407191.9, Max: 1407194.4, Diff: 3.4]
+      [Ext Root Scanning (ms): Min: 7.0, Avg: 10.1, Max: 19.5, Diff: 12.5, Sum: 150.9]
+      [Update RS (ms): Min: 0.0, Avg: 1.4, Max: 6.7, Diff: 6.7, Sum: 20.6]
+         [Processed Buffers: Min: 0, Avg: 2.2, Max: 10, Diff: 10, Sum: 33]
+      [Scan RS (ms): Min: 0.0, Avg: 0.1, Max: 0.2, Diff: 0.2, Sum: 1.0]
+      [Code Root Scanning (ms): Min: 0.0, Avg: 0.2, Max: 0.9, Diff: 0.9, Sum: 3.0]
+      [Object Copy (ms): Min: 0.1, Avg: 7.7, Max: 9.7, Diff: 9.5, Sum: 115.5]
+      [Termination (ms): Min: 0.0, Avg: 0.6, Max: 0.7, Diff: 0.7, Sum: 8.5]
+         [Termination Attempts: Min: 1, Avg: 54.5, Max: 81, Diff: 80, Sum: 817]
+      [GC Worker Other (ms): Min: 0.0, Avg: 0.1, Max: 0.6, Diff: 0.5, Sum: 1.0]
+      [GC Worker Total (ms): Min: 17.5, Avg: 20.0, Max: 20.9, Diff: 3.4, Sum: 300.5]
+      [GC Worker End (ms): Min: 1407211.9, Avg: 1407211.9, Max: 1407212.0, Diff: 0.1]
+   [Code Root Fixup: 0.0 ms]
+   [Code Root Purge: 0.1 ms]
+   [Clear CT: 1.2 ms]
+   [Other: 8.4 ms]
+      [Choose CSet: 0.0 ms]
+      [Ref Proc: 2.2 ms]
+      [Ref Enq: 0.0 ms]
+      [Redirty Cards: 1.0 ms]
+      [Humongous Register: 0.0 ms]
+      [Humongous Reclaim: 0.0 ms]
+      [Free CSet: 0.2 ms]
+   [Eden: 18.0M(44.0M)->0.0B(44.0M) Survivors: 7168.0K->7168.0K Heap: 172.6M(1024.0M)->159.4M(1024.0M)]
+ [Times: user=0.14 sys=0.08, real=0.03 secs]
+2020-07-29T17:12:14.717+0800: 1407.218: [GC concurrent-root-region-scan-start]
+2020-07-29T17:12:14.721+0800: 1407.222: [GC concurrent-root-region-scan-end, 0.0043404 secs]
+2020-07-29T17:12:14.721+0800: 1407.222: [GC concurrent-mark-start]
+2020-07-29T17:12:14.727+0800: 1407.228: [GC concurrent-mark-end, 0.0062145 secs]
+2020-07-29T17:12:14.728+0800: 1407.229: [GC remark 2020-07-29T17:12:14.728+0800: 1407.229: [Finalize Marking, 0.0022192 secs] 2020-07-29T17:12:14.730+0800: 1407.231: [GC ref-proc, 0.0011386 secs] 2020-07-29T17:12:14.732+0800: 1407.232: [Unloading, 0.0211842 secs], 0.0292645 secs]
+ [Times: user=0.09 sys=0.15, real=0.03 secs]
+2020-07-29T17:12:14.758+0800: 1407.259: [GC cleanup 159M->150M(1024M), 0.0055297 secs]
+ [Times: user=0.01 sys=0.01, real=0.01 secs]
+
+==> ./controller.log <==
+[2020-07-29 17:13:57,141] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:13:57,142] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+==> ./kafkaServer.out <==
+[2020-07-29 17:18:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./server.log <==
+[2020-07-29 17:18:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./controller.log <==
+[2020-07-29 17:18:57,144] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:18:57,144] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2020-07-29 17:23:57,145] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:23:57,146] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+==> ./kafkaServer.out <==
+[2020-07-29 17:28:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./server.log <==
+[2020-07-29 17:28:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./controller.log <==
+[2020-07-29 17:28:57,148] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:28:57,149] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2020-07-29 17:33:57,151] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:33:57,151] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+sdfw
+sdfw
+
+
+==> ./kafkaServer-gc.log.0.current <==
+2020-07-29T17:12:14.684+0800: 1407.185: [GC pause (Metadata GC Threshold) (young) (initial-mark), 0.0326796 secs]
+   [Parallel Time: 22.9 ms, GC Workers: 15]
+      [GC Worker Start (ms): Min: 1407191.0, Avg: 1407191.9, Max: 1407194.4, Diff: 3.4]
+      [Ext Root Scanning (ms): Min: 7.0, Avg: 10.1, Max: 19.5, Diff: 12.5, Sum: 150.9]
+      [Update RS (ms): Min: 0.0, Avg: 1.4, Max: 6.7, Diff: 6.7, Sum: 20.6]
+         [Processed Buffers: Min: 0, Avg: 2.2, Max: 10, Diff: 10, Sum: 33]
+      [Scan RS (ms): Min: 0.0, Avg: 0.1, Max: 0.2, Diff: 0.2, Sum: 1.0]
+      [Code Root Scanning (ms): Min: 0.0, Avg: 0.2, Max: 0.9, Diff: 0.9, Sum: 3.0]
+      [Object Copy (ms): Min: 0.1, Avg: 7.7, Max: 9.7, Diff: 9.5, Sum: 115.5]
+      [Termination (ms): Min: 0.0, Avg: 0.6, Max: 0.7, Diff: 0.7, Sum: 8.5]
+         [Termination Attempts: Min: 1, Avg: 54.5, Max: 81, Diff: 80, Sum: 817]
+      [GC Worker Other (ms): Min: 0.0, Avg: 0.1, Max: 0.6, Diff: 0.5, Sum: 1.0]
+      [GC Worker Total (ms): Min: 17.5, Avg: 20.0, Max: 20.9, Diff: 3.4, Sum: 300.5]
+      [GC Worker End (ms): Min: 1407211.9, Avg: 1407211.9, Max: 1407212.0, Diff: 0.1]
+   [Code Root Fixup: 0.0 ms]
+   [Code Root Purge: 0.1 ms]
+   [Clear CT: 1.2 ms]
+   [Other: 8.4 ms]
+      [Choose CSet: 0.0 ms]
+      [Ref Proc: 2.2 ms]
+      [Ref Enq: 0.0 ms]
+      [Redirty Cards: 1.0 ms]
+      [Humongous Register: 0.0 ms]
+      [Humongous Reclaim: 0.0 ms]
+      [Free CSet: 0.2 ms]
+   [Eden: 18.0M(44.0M)->0.0B(44.0M) Survivors: 7168.0K->7168.0K Heap: 172.6M(1024.0M)->159.4M(1024.0M)]
+ [Times: user=0.14 sys=0.08, real=0.03 secs]
+2020-07-29T17:12:14.717+0800: 1407.218: [GC concurrent-root-region-scan-start]
+2020-07-29T17:12:14.721+0800: 1407.222: [GC concurrent-root-region-scan-end, 0.0043404 secs]
+2020-07-29T17:12:14.721+0800: 1407.222: [GC concurrent-mark-start]
+2020-07-29T17:12:14.727+0800: 1407.228: [GC concurrent-mark-end, 0.0062145 secs]
+2020-07-29T17:12:14.728+0800: 1407.229: [GC remark 2020-07-29T17:12:14.728+0800: 1407.229: [Finalize Marking, 0.0022192 secs] 2020-07-29T17:12:14.730+0800: 1407.231: [GC ref-proc, 0.0011386 secs] 2020-07-29T17:12:14.732+0800: 1407.232: [Unloading, 0.0211842 secs], 0.0292645 secs]
+ [Times: user=0.09 sys=0.15, real=0.03 secs]
+2020-07-29T17:12:14.758+0800: 1407.259: [GC cleanup 159M->150M(1024M), 0.0055297 secs]
+ [Times: user=0.01 sys=0.01, real=0.01 secs]
+
+==> ./controller.log <==
+[2020-07-29 17:13:57,141] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:13:57,142] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+==> ./kafkaServer.out <==
+[2020-07-29 17:18:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./server.log <==
+[2020-07-29 17:18:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./controller.log <==
+[2020-07-29 17:18:57,144] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:18:57,144] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2020-07-29 17:23:57,145] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:23:57,146] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+==> ./kafkaServer.out <==
+[2020-07-29 17:28:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./server.log <==
+[2020-07-29 17:28:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./controller.log <==
+[2020-07-29 17:28:57,148] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:28:57,149] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2020-07-29 17:33:57,151] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:33:57,151] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+sfdwsdfw
+
+
+
+==> ./kafkaServer-gc.log.0.current <==
+2020-07-29T17:12:14.684+0800: 1407.185: [GC pause (Metadata GC Threshold) (young) (initial-mark), 0.0326796 secs]
+   [Parallel Time: 22.9 ms, GC Workers: 15]
+      [GC Worker Start (ms): Min: 1407191.0, Avg: 1407191.9, Max: 1407194.4, Diff: 3.4]
+      [Ext Root Scanning (ms): Min: 7.0, Avg: 10.1, Max: 19.5, Diff: 12.5, Sum: 150.9]
+      [Update RS (ms): Min: 0.0, Avg: 1.4, Max: 6.7, Diff: 6.7, Sum: 20.6]
+         [Processed Buffers: Min: 0, Avg: 2.2, Max: 10, Diff: 10, Sum: 33]
+      [Scan RS (ms): Min: 0.0, Avg: 0.1, Max: 0.2, Diff: 0.2, Sum: 1.0]
+      [Code Root Scanning (ms): Min: 0.0, Avg: 0.2, Max: 0.9, Diff: 0.9, Sum: 3.0]
+      [Object Copy (ms): Min: 0.1, Avg: 7.7, Max: 9.7, Diff: 9.5, Sum: 115.5]
+      [Termination (ms): Min: 0.0, Avg: 0.6, Max: 0.7, Diff: 0.7, Sum: 8.5]
+         [Termination Attempts: Min: 1, Avg: 54.5, Max: 81, Diff: 80, Sum: 817]
+      [GC Worker Other (ms): Min: 0.0, Avg: 0.1, Max: 0.6, Diff: 0.5, Sum: 1.0]
+      [GC Worker Total (ms): Min: 17.5, Avg: 20.0, Max: 20.9, Diff: 3.4, Sum: 300.5]
+      [GC Worker End (ms): Min: 1407211.9, Avg: 1407211.9, Max: 1407212.0, Diff: 0.1]
+   [Code Root Fixup: 0.0 ms]
+   [Code Root Purge: 0.1 ms]
+   [Clear CT: 1.2 ms]
+   [Other: 8.4 ms]
+      [Choose CSet: 0.0 ms]
+      [Ref Proc: 2.2 ms]
+      [Ref Enq: 0.0 ms]
+      [Redirty Cards: 1.0 ms]
+      [Humongous Register: 0.0 ms]
+      [Humongous Reclaim: 0.0 ms]
+      [Free CSet: 0.2 ms]
+   [Eden: 18.0M(44.0M)->0.0B(44.0M) Survivors: 7168.0K->7168.0K Heap: 172.6M(1024.0M)->159.4M(1024.0M)]
+ [Times: user=0.14 sys=0.08, real=0.03 secs]
+2020-07-29T17:12:14.717+0800: 1407.218: [GC concurrent-root-region-scan-start]
+2020-07-29T17:12:14.721+0800: 1407.222: [GC concurrent-root-region-scan-end, 0.0043404 secs]
+2020-07-29T17:12:14.721+0800: 1407.222: [GC concurrent-mark-start]
+2020-07-29T17:12:14.727+0800: 1407.228: [GC concurrent-mark-end, 0.0062145 secs]
+2020-07-29T17:12:14.728+0800: 1407.229: [GC remark 2020-07-29T17:12:14.728+0800: 1407.229: [Finalize Marking, 0.0022192 secs] 2020-07-29T17:12:14.730+0800: 1407.231: [GC ref-proc, 0.0011386 secs] 2020-07-29T17:12:14.732+0800: 1407.232: [Unloading, 0.0211842 secs], 0.0292645 secs]
+ [Times: user=0.09 sys=0.15, real=0.03 secs]
+2020-07-29T17:12:14.758+0800: 1407.259: [GC cleanup 159M->150M(1024M), 0.0055297 secs]
+ [Times: user=0.01 sys=0.01, real=0.01 secs]
+
+==> ./controller.log <==
+[2020-07-29 17:13:57,141] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:13:57,142] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+==> ./kafkaServer.out <==
+[2020-07-29 17:18:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./server.log <==
+[2020-07-29 17:18:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./controller.log <==
+[2020-07-29 17:18:57,144] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:18:57,144] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2020-07-29 17:23:57,145] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:23:57,146] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+==> ./kafkaServer.out <==
+[2020-07-29 17:28:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./server.log <==
+[2020-07-29 17:28:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./controller.log <==
+[2020-07-29 17:28:57,148] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:28:57,149] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2020-07-29 17:33:57,151] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:33:57,151] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+
+
+
+==> ./kafkaServer-gc.log.0.current <==
+2020-07-29T17:12:14.684+0800: 1407.185: [GC pause (Metadata GC Threshold) (young) (initial-mark), 0.0326796 secs]
+   [Parallel Time: 22.9 ms, GC Workers: 15]
+      [GC Worker Start (ms): Min: 1407191.0, Avg: 1407191.9, Max: 1407194.4, Diff: 3.4]
+      [Ext Root Scanning (ms): Min: 7.0, Avg: 10.1, Max: 19.5, Diff: 12.5, Sum: 150.9]
+      [Update RS (ms): Min: 0.0, Avg: 1.4, Max: 6.7, Diff: 6.7, Sum: 20.6]
+         [Processed Buffers: Min: 0, Avg: 2.2, Max: 10, Diff: 10, Sum: 33]
+      [Scan RS (ms): Min: 0.0, Avg: 0.1, Max: 0.2, Diff: 0.2, Sum: 1.0]
+      [Code Root Scanning (ms): Min: 0.0, Avg: 0.2, Max: 0.9, Diff: 0.9, Sum: 3.0]
+      [Object Copy (ms): Min: 0.1, Avg: 7.7, Max: 9.7, Diff: 9.5, Sum: 115.5]
+      [Termination (ms): Min: 0.0, Avg: 0.6, Max: 0.7, Diff: 0.7, Sum: 8.5]
+         [Termination Attempts: Min: 1, Avg: 54.5, Max: 81, Diff: 80, Sum: 817]
+      [GC Worker Other (ms): Min: 0.0, Avg: 0.1, Max: 0.6, Diff: 0.5, Sum: 1.0]
+      [GC Worker Total (ms): Min: 17.5, Avg: 20.0, Max: 20.9, Diff: 3.4, Sum: 300.5]
+      [GC Worker End (ms): Min: 1407211.9, Avg: 1407211.9, Max: 1407212.0, Diff: 0.1]
+   [Code Root Fixup: 0.0 ms]
+   [Code Root Purge: 0.1 ms]
+   [Clear CT: 1.2 ms]
+   [Other: 8.4 ms]
+      [Choose CSet: 0.0 ms]
+      [Ref Proc: 2.2 ms]
+      [Ref Enq: 0.0 ms]
+      [Redirty Cards: 1.0 ms]
+      [Humongous Register: 0.0 ms]
+      [Humongous Reclaim: 0.0 ms]
+      [Free CSet: 0.2 ms]
+   [Eden: 18.0M(44.0M)->0.0B(44.0M) Survivors: 7168.0K->7168.0K Heap: 172.6M(1024.0M)->159.4M(1024.0M)]
+ [Times: user=0.14 sys=0.08, real=0.03 secs]
+2020-07-29T17:12:14.717+0800: 1407.218: [GC concurrent-root-region-scan-start]
+2020-07-29T17:12:14.721+0800: 1407.222: [GC concurrent-root-region-scan-end, 0.0043404 secs]
+2020-07-29T17:12:14.721+0800: 1407.222: [GC concurrent-mark-start]
+2020-07-29T17:12:14.727+0800: 1407.228: [GC concurrent-mark-end, 0.0062145 secs]
+2020-07-29T17:12:14.728+0800: 1407.229: [GC remark 2020-07-29T17:12:14.728+0800: 1407.229: [Finalize Marking, 0.0022192 secs] 2020-07-29T17:12:14.730+0800: 1407.231: [GC ref-proc, 0.0011386 secs] 2020-07-29T17:12:14.732+0800: 1407.232: [Unloading, 0.0211842 secs], 0.0292645 secs]
+ [Times: user=0.09 sys=0.15, real=0.03 secs]
+2020-07-29T17:12:14.758+0800: 1407.259: [GC cleanup 159M->150M(1024M), 0.0055297 secs]
+ [Times: user=0.01 sys=0.01, real=0.01 secs]
+
+==> ./controller.log <==
+[2020-07-29 17:13:57,141] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:13:57,142] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+==> ./kafkaServer.out <==
+[2020-07-29 17:18:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./server.log <==
+[2020-07-29 17:18:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./controller.log <==
+[2020-07-29 17:18:57,144] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:18:57,144] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2020-07-29 17:23:57,145] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:23:57,146] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+==> ./kafkaServer.out <==
+[2020-07-29 17:28:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./server.log <==
+[2020-07-29 17:28:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./controller.log <==
+[2020-07-29 17:28:57,148] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:28:57,149] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2020-07-29 17:33:57,151] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:33:57,151] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+sdfw
+sdfw
+
+
+==> ./kafkaServer-gc.log.0.current <==
+2020-07-29T17:12:14.684+0800: 1407.185: [GC pause (Metadata GC Threshold) (young) (initial-mark), 0.0326796 secs]
+   [Parallel Time: 22.9 ms, GC Workers: 15]
+      [GC Worker Start (ms): Min: 1407191.0, Avg: 1407191.9, Max: 1407194.4, Diff: 3.4]
+      [Ext Root Scanning (ms): Min: 7.0, Avg: 10.1, Max: 19.5, Diff: 12.5, Sum: 150.9]
+      [Update RS (ms): Min: 0.0, Avg: 1.4, Max: 6.7, Diff: 6.7, Sum: 20.6]
+         [Processed Buffers: Min: 0, Avg: 2.2, Max: 10, Diff: 10, Sum: 33]
+      [Scan RS (ms): Min: 0.0, Avg: 0.1, Max: 0.2, Diff: 0.2, Sum: 1.0]
+      [Code Root Scanning (ms): Min: 0.0, Avg: 0.2, Max: 0.9, Diff: 0.9, Sum: 3.0]
+      [Object Copy (ms): Min: 0.1, Avg: 7.7, Max: 9.7, Diff: 9.5, Sum: 115.5]
+      [Termination (ms): Min: 0.0, Avg: 0.6, Max: 0.7, Diff: 0.7, Sum: 8.5]
+         [Termination Attempts: Min: 1, Avg: 54.5, Max: 81, Diff: 80, Sum: 817]
+      [GC Worker Other (ms): Min: 0.0, Avg: 0.1, Max: 0.6, Diff: 0.5, Sum: 1.0]
+      [GC Worker Total (ms): Min: 17.5, Avg: 20.0, Max: 20.9, Diff: 3.4, Sum: 300.5]
+      [GC Worker End (ms): Min: 1407211.9, Avg: 1407211.9, Max: 1407212.0, Diff: 0.1]
+   [Code Root Fixup: 0.0 ms]
+   [Code Root Purge: 0.1 ms]
+   [Clear CT: 1.2 ms]
+   [Other: 8.4 ms]
+      [Choose CSet: 0.0 ms]
+      [Ref Proc: 2.2 ms]
+      [Ref Enq: 0.0 ms]
+      [Redirty Cards: 1.0 ms]
+      [Humongous Register: 0.0 ms]
+      [Humongous Reclaim: 0.0 ms]
+      [Free CSet: 0.2 ms]
+   [Eden: 18.0M(44.0M)->0.0B(44.0M) Survivors: 7168.0K->7168.0K Heap: 172.6M(1024.0M)->159.4M(1024.0M)]
+ [Times: user=0.14 sys=0.08, real=0.03 secs]
+2020-07-29T17:12:14.717+0800: 1407.218: [GC concurrent-root-region-scan-start]
+2020-07-29T17:12:14.721+0800: 1407.222: [GC concurrent-root-region-scan-end, 0.0043404 secs]
+2020-07-29T17:12:14.721+0800: 1407.222: [GC concurrent-mark-start]
+2020-07-29T17:12:14.727+0800: 1407.228: [GC concurrent-mark-end, 0.0062145 secs]
+2020-07-29T17:12:14.728+0800: 1407.229: [GC remark 2020-07-29T17:12:14.728+0800: 1407.229: [Finalize Marking, 0.0022192 secs] 2020-07-29T17:12:14.730+0800: 1407.231: [GC ref-proc, 0.0011386 secs] 2020-07-29T17:12:14.732+0800: 1407.232: [Unloading, 0.0211842 secs], 0.0292645 secs]
+ [Times: user=0.09 sys=0.15, real=0.03 secs]
+2020-07-29T17:12:14.758+0800: 1407.259: [GC cleanup 159M->150M(1024M), 0.0055297 secs]
+ [Times: user=0.01 sys=0.01, real=0.01 secs]
+
+==> ./controller.log <==
+[2020-07-29 17:13:57,141] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:13:57,142] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+==> ./kafkaServer.out <==
+[2020-07-29 17:18:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./server.log <==
+[2020-07-29 17:18:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./controller.log <==
+[2020-07-29 17:18:57,144] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:18:57,144] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2020-07-29 17:23:57,145] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:23:57,146] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+==> ./kafkaServer.out <==
+[2020-07-29 17:28:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./server.log <==
+[2020-07-29 17:28:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./controller.log <==
+[2020-07-29 17:28:57,148] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:28:57,149] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2020-07-29 17:33:57,151] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:33:57,151] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+sfdwsdfw
+
+
+
+==> ./kafkaServer-gc.log.0.current <==
+2020-07-29T17:12:14.684+0800: 1407.185: [GC pause (Metadata GC Threshold) (young) (initial-mark), 0.0326796 secs]
+   [Parallel Time: 22.9 ms, GC Workers: 15]
+      [GC Worker Start (ms): Min: 1407191.0, Avg: 1407191.9, Max: 1407194.4, Diff: 3.4]
+      [Ext Root Scanning (ms): Min: 7.0, Avg: 10.1, Max: 19.5, Diff: 12.5, Sum: 150.9]
+      [Update RS (ms): Min: 0.0, Avg: 1.4, Max: 6.7, Diff: 6.7, Sum: 20.6]
+         [Processed Buffers: Min: 0, Avg: 2.2, Max: 10, Diff: 10, Sum: 33]
+      [Scan RS (ms): Min: 0.0, Avg: 0.1, Max: 0.2, Diff: 0.2, Sum: 1.0]
+      [Code Root Scanning (ms): Min: 0.0, Avg: 0.2, Max: 0.9, Diff: 0.9, Sum: 3.0]
+      [Object Copy (ms): Min: 0.1, Avg: 7.7, Max: 9.7, Diff: 9.5, Sum: 115.5]
+      [Termination (ms): Min: 0.0, Avg: 0.6, Max: 0.7, Diff: 0.7, Sum: 8.5]
+         [Termination Attempts: Min: 1, Avg: 54.5, Max: 81, Diff: 80, Sum: 817]
+      [GC Worker Other (ms): Min: 0.0, Avg: 0.1, Max: 0.6, Diff: 0.5, Sum: 1.0]
+      [GC Worker Total (ms): Min: 17.5, Avg: 20.0, Max: 20.9, Diff: 3.4, Sum: 300.5]
+      [GC Worker End (ms): Min: 1407211.9, Avg: 1407211.9, Max: 1407212.0, Diff: 0.1]
+   [Code Root Fixup: 0.0 ms]
+   [Code Root Purge: 0.1 ms]
+   [Clear CT: 1.2 ms]
+   [Other: 8.4 ms]
+      [Choose CSet: 0.0 ms]
+      [Ref Proc: 2.2 ms]
+      [Ref Enq: 0.0 ms]
+      [Redirty Cards: 1.0 ms]
+      [Humongous Register: 0.0 ms]
+      [Humongous Reclaim: 0.0 ms]
+      [Free CSet: 0.2 ms]
+   [Eden: 18.0M(44.0M)->0.0B(44.0M) Survivors: 7168.0K->7168.0K Heap: 172.6M(1024.0M)->159.4M(1024.0M)]
+ [Times: user=0.14 sys=0.08, real=0.03 secs]
+2020-07-29T17:12:14.717+0800: 1407.218: [GC concurrent-root-region-scan-start]
+2020-07-29T17:12:14.721+0800: 1407.222: [GC concurrent-root-region-scan-end, 0.0043404 secs]
+2020-07-29T17:12:14.721+0800: 1407.222: [GC concurrent-mark-start]
+2020-07-29T17:12:14.727+0800: 1407.228: [GC concurrent-mark-end, 0.0062145 secs]
+2020-07-29T17:12:14.728+0800: 1407.229: [GC remark 2020-07-29T17:12:14.728+0800: 1407.229: [Finalize Marking, 0.0022192 secs] 2020-07-29T17:12:14.730+0800: 1407.231: [GC ref-proc, 0.0011386 secs] 2020-07-29T17:12:14.732+0800: 1407.232: [Unloading, 0.0211842 secs], 0.0292645 secs]
+ [Times: user=0.09 sys=0.15, real=0.03 secs]
+2020-07-29T17:12:14.758+0800: 1407.259: [GC cleanup 159M->150M(1024M), 0.0055297 secs]
+ [Times: user=0.01 sys=0.01, real=0.01 secs]
+
+==> ./controller.log <==
+[2020-07-29 17:13:57,141] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:13:57,142] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+==> ./kafkaServer.out <==
+[2020-07-29 17:18:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./server.log <==
+[2020-07-29 17:18:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./controller.log <==
+[2020-07-29 17:18:57,144] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:18:57,144] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2020-07-29 17:23:57,145] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:23:57,146] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+==> ./kafkaServer.out <==
+[2020-07-29 17:28:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./server.log <==
+[2020-07-29 17:28:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./controller.log <==
+[2020-07-29 17:28:57,148] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:28:57,149] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2020-07-29 17:33:57,151] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:33:57,151] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+
+
+
+==> ./kafkaServer-gc.log.0.current <==
+2020-07-29T17:12:14.684+0800: 1407.185: [GC pause (Metadata GC Threshold) (young) (initial-mark), 0.0326796 secs]
+   [Parallel Time: 22.9 ms, GC Workers: 15]
+      [GC Worker Start (ms): Min: 1407191.0, Avg: 1407191.9, Max: 1407194.4, Diff: 3.4]
+      [Ext Root Scanning (ms): Min: 7.0, Avg: 10.1, Max: 19.5, Diff: 12.5, Sum: 150.9]
+      [Update RS (ms): Min: 0.0, Avg: 1.4, Max: 6.7, Diff: 6.7, Sum: 20.6]
+         [Processed Buffers: Min: 0, Avg: 2.2, Max: 10, Diff: 10, Sum: 33]
+      [Scan RS (ms): Min: 0.0, Avg: 0.1, Max: 0.2, Diff: 0.2, Sum: 1.0]
+      [Code Root Scanning (ms): Min: 0.0, Avg: 0.2, Max: 0.9, Diff: 0.9, Sum: 3.0]
+      [Object Copy (ms): Min: 0.1, Avg: 7.7, Max: 9.7, Diff: 9.5, Sum: 115.5]
+      [Termination (ms): Min: 0.0, Avg: 0.6, Max: 0.7, Diff: 0.7, Sum: 8.5]
+         [Termination Attempts: Min: 1, Avg: 54.5, Max: 81, Diff: 80, Sum: 817]
+      [GC Worker Other (ms): Min: 0.0, Avg: 0.1, Max: 0.6, Diff: 0.5, Sum: 1.0]
+      [GC Worker Total (ms): Min: 17.5, Avg: 20.0, Max: 20.9, Diff: 3.4, Sum: 300.5]
+      [GC Worker End (ms): Min: 1407211.9, Avg: 1407211.9, Max: 1407212.0, Diff: 0.1]
+   [Code Root Fixup: 0.0 ms]
+   [Code Root Purge: 0.1 ms]
+   [Clear CT: 1.2 ms]
+   [Other: 8.4 ms]
+      [Choose CSet: 0.0 ms]
+      [Ref Proc: 2.2 ms]
+      [Ref Enq: 0.0 ms]
+      [Redirty Cards: 1.0 ms]
+      [Humongous Register: 0.0 ms]
+      [Humongous Reclaim: 0.0 ms]
+      [Free CSet: 0.2 ms]
+   [Eden: 18.0M(44.0M)->0.0B(44.0M) Survivors: 7168.0K->7168.0K Heap: 172.6M(1024.0M)->159.4M(1024.0M)]
+ [Times: user=0.14 sys=0.08, real=0.03 secs]
+2020-07-29T17:12:14.717+0800: 1407.218: [GC concurrent-root-region-scan-start]
+2020-07-29T17:12:14.721+0800: 1407.222: [GC concurrent-root-region-scan-end, 0.0043404 secs]
+2020-07-29T17:12:14.721+0800: 1407.222: [GC concurrent-mark-start]
+2020-07-29T17:12:14.727+0800: 1407.228: [GC concurrent-mark-end, 0.0062145 secs]
+2020-07-29T17:12:14.728+0800: 1407.229: [GC remark 2020-07-29T17:12:14.728+0800: 1407.229: [Finalize Marking, 0.0022192 secs] 2020-07-29T17:12:14.730+0800: 1407.231: [GC ref-proc, 0.0011386 secs] 2020-07-29T17:12:14.732+0800: 1407.232: [Unloading, 0.0211842 secs], 0.0292645 secs]
+ [Times: user=0.09 sys=0.15, real=0.03 secs]
+2020-07-29T17:12:14.758+0800: 1407.259: [GC cleanup 159M->150M(1024M), 0.0055297 secs]
+ [Times: user=0.01 sys=0.01, real=0.01 secs]
+
+==> ./controller.log <==
+[2020-07-29 17:13:57,141] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:13:57,142] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+==> ./kafkaServer.out <==
+[2020-07-29 17:18:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./server.log <==
+[2020-07-29 17:18:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./controller.log <==
+[2020-07-29 17:18:57,144] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:18:57,144] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2020-07-29 17:23:57,145] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:23:57,146] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+==> ./kafkaServer.out <==
+[2020-07-29 17:28:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./server.log <==
+[2020-07-29 17:28:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./controller.log <==
+[2020-07-29 17:28:57,148] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:28:57,149] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2020-07-29 17:33:57,151] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:33:57,151] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+sdfw
+sdfw
+
+
+==> ./kafkaServer-gc.log.0.current <==
+2020-07-29T17:12:14.684+0800: 1407.185: [GC pause (Metadata GC Threshold) (young) (initial-mark), 0.0326796 secs]
+   [Parallel Time: 22.9 ms, GC Workers: 15]
+      [GC Worker Start (ms): Min: 1407191.0, Avg: 1407191.9, Max: 1407194.4, Diff: 3.4]
+      [Ext Root Scanning (ms): Min: 7.0, Avg: 10.1, Max: 19.5, Diff: 12.5, Sum: 150.9]
+      [Update RS (ms): Min: 0.0, Avg: 1.4, Max: 6.7, Diff: 6.7, Sum: 20.6]
+         [Processed Buffers: Min: 0, Avg: 2.2, Max: 10, Diff: 10, Sum: 33]
+      [Scan RS (ms): Min: 0.0, Avg: 0.1, Max: 0.2, Diff: 0.2, Sum: 1.0]
+      [Code Root Scanning (ms): Min: 0.0, Avg: 0.2, Max: 0.9, Diff: 0.9, Sum: 3.0]
+      [Object Copy (ms): Min: 0.1, Avg: 7.7, Max: 9.7, Diff: 9.5, Sum: 115.5]
+      [Termination (ms): Min: 0.0, Avg: 0.6, Max: 0.7, Diff: 0.7, Sum: 8.5]
+         [Termination Attempts: Min: 1, Avg: 54.5, Max: 81, Diff: 80, Sum: 817]
+      [GC Worker Other (ms): Min: 0.0, Avg: 0.1, Max: 0.6, Diff: 0.5, Sum: 1.0]
+      [GC Worker Total (ms): Min: 17.5, Avg: 20.0, Max: 20.9, Diff: 3.4, Sum: 300.5]
+      [GC Worker End (ms): Min: 1407211.9, Avg: 1407211.9, Max: 1407212.0, Diff: 0.1]
+   [Code Root Fixup: 0.0 ms]
+   [Code Root Purge: 0.1 ms]
+   [Clear CT: 1.2 ms]
+   [Other: 8.4 ms]
+      [Choose CSet: 0.0 ms]
+      [Ref Proc: 2.2 ms]
+      [Ref Enq: 0.0 ms]
+      [Redirty Cards: 1.0 ms]
+      [Humongous Register: 0.0 ms]
+      [Humongous Reclaim: 0.0 ms]
+      [Free CSet: 0.2 ms]
+   [Eden: 18.0M(44.0M)->0.0B(44.0M) Survivors: 7168.0K->7168.0K Heap: 172.6M(1024.0M)->159.4M(1024.0M)]
+ [Times: user=0.14 sys=0.08, real=0.03 secs]
+2020-07-29T17:12:14.717+0800: 1407.218: [GC concurrent-root-region-scan-start]
+2020-07-29T17:12:14.721+0800: 1407.222: [GC concurrent-root-region-scan-end, 0.0043404 secs]
+2020-07-29T17:12:14.721+0800: 1407.222: [GC concurrent-mark-start]
+2020-07-29T17:12:14.727+0800: 1407.228: [GC concurrent-mark-end, 0.0062145 secs]
+2020-07-29T17:12:14.728+0800: 1407.229: [GC remark 2020-07-29T17:12:14.728+0800: 1407.229: [Finalize Marking, 0.0022192 secs] 2020-07-29T17:12:14.730+0800: 1407.231: [GC ref-proc, 0.0011386 secs] 2020-07-29T17:12:14.732+0800: 1407.232: [Unloading, 0.0211842 secs], 0.0292645 secs]
+ [Times: user=0.09 sys=0.15, real=0.03 secs]
+2020-07-29T17:12:14.758+0800: 1407.259: [GC cleanup 159M->150M(1024M), 0.0055297 secs]
+ [Times: user=0.01 sys=0.01, real=0.01 secs]
+
+==> ./controller.log <==
+[2020-07-29 17:13:57,141] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:13:57,142] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+==> ./kafkaServer.out <==
+[2020-07-29 17:18:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./server.log <==
+[2020-07-29 17:18:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./controller.log <==
+[2020-07-29 17:18:57,144] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:18:57,144] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2020-07-29 17:23:57,145] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:23:57,146] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+==> ./kafkaServer.out <==
+[2020-07-29 17:28:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./server.log <==
+[2020-07-29 17:28:51,910] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+
+==> ./controller.log <==
+[2020-07-29 17:28:57,148] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:28:57,149] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2020-07-29 17:33:57,151] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2020-07-29 17:33:57,151] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+
+sfdwsdfw
