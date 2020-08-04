@@ -5,15 +5,12 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/sirupsen/logrus"
+	"github.com/tddey01/luffy/day014/loagent/common"
 	"go.etcd.io/etcd/clientv3"
 	"time"
 )
 
 // etc 相关操作
-type collectEntry struct {
-	Path  string `json:"path"`
-	Topic string `json:"topic"`
-}
 
 var (
 	client *clientv3.Client
@@ -32,7 +29,7 @@ func Init(address []string) (err error) {
 }
 
 // 拉去日志收集的配置项目函数
-func GetConf(key string) (collectEntryList []collectEntry,err error) {
+func GetConf(key string) (collectEntryList []common.CollectEntry,err error) {
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*2)
 	defer cancel()
 	resp, err := client.Get(ctx, key)

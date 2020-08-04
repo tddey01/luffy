@@ -2,10 +2,6 @@ package main
 
 import (
 	"fmt"
-	"strings"
-	"time"
-
-	"github.com/Shopify/sarama"
 	"github.com/go-ini/ini"
 	"github.com/sirupsen/logrus"
 	"github.com/tddey01/luffy/day014/loagent/etcd"
@@ -42,32 +38,8 @@ type EtcdConfig struct {
 	CollectKey string `ini:"collect_key"`
 }
 
-// 真正的业务逻辑
-func run() (err error) {
-	// TailObj --> log --> Client --> kafka
-	for {
-		line, ok := <-tailfile.TailObj.Lines // chan tail.Line
-		if !ok {
-			logrus.Warning("tail file close reopen, filename:%s\n", tailfile.TailObj.Filename)
-			time.Sleep(time.Second) // 读取出错等一秒
-			continue
-		}
-		//如果是空行 就跳过
-		fmt.Printf("%#v\n", line.Text)
-		if len(strings.Trim(line.Text, "\n\r")) == 0 {
-			logrus.Info("空行")
-			continue
-		}
-		// 利用通道将同步的代码改为异步的
-		//fmt.Println("msg:", msg.Text)
-		// 把读出来一行日志包装成kafka里面msg 类型，丢到通道中
-		msg := &sarama.ProducerMessage{}
-
-		msg.Value = sarama.StringEncoder(line.Text)
-
-		//	 丢到管道中
-		kafka.ToMsgChan(msg)
-	}
+func run() {
+	select {}
 }
 
 func main() {
@@ -111,17 +83,11 @@ func main() {
 	}
 	fmt.Println(allConf)
 	//	根据配置文件日志路径使用tail去收集日志
-	err = tailfile.Init(configObj.CollectConfig.LogFilePath)
+	err = tailfile.Init(allConf) // 把从etcd中加载获取的配置项传到etcd中
 	if err != nil {
 		logrus.Errorf("init  tailfile failed err:%v\n", err)
 		return
 	}
 	logrus.Info("init  tailfile succcess!")
-
-	//	把日志通过sarama发送kafka
-	err = run()
-	if err != nil {
-		logrus.Errorf("run kafka  tailfile failed err:%v\n", err)
-		return
-	}
+	run()
 }
