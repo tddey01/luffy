@@ -67,14 +67,14 @@ func main() {
 		logrus.Errorf("init  kafka failed err:%v\n", err)
 		return
 	}
-	logrus.Info("init  kafka succcess!")
+	logrus.Info("init  kafka succcessfull!")
 
 	err = etcd.Init([]string{configObj.EtcdConfig.Address})
 	if err != nil {
 		logrus.Errorf("init  etcd failed err:%v\n", err)
 		return
 	}
-	logrus.Info("init  kafka succcess!")
+	logrus.Info("init  etcd succcessfull!")
 	// 从etcd中拉去要收集日志的配置
 	allConf, err := etcd.GetConf(configObj.EtcdConfig.CollectKey)
 	if err != nil {
@@ -82,12 +82,14 @@ func main() {
 		return
 	}
 	fmt.Println(allConf)
+	// 派一个小弟  去监控etcd中， configObj.EtcdConfig.CollectKey 对应变化
+	go etcd.WatchConf(configObj.EtcdConfig.CollectKey)
 	//	根据配置文件日志路径使用tail去收集日志
 	err = tailfile.Init(allConf) // 把从etcd中加载获取的配置项传到etcd中
 	if err != nil {
 		logrus.Errorf("init  tailfile failed err:%v\n", err)
 		return
 	}
-	logrus.Info("init  tailfile succcess!")
+	logrus.Info("init  tailfile succcessfull!")
 	run()
 }

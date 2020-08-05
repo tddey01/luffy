@@ -4,10 +4,12 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"time"
+
 	"github.com/sirupsen/logrus"
 	"github.com/tddey01/luffy/day014/loagent/common"
+	"github.com/tddey01/luffy/day014/loagent/tailfile"
 	"go.etcd.io/etcd/clientv3"
-	"time"
 )
 
 // etc 相关操作
@@ -29,7 +31,7 @@ func Init(address []string) (err error) {
 }
 
 // 拉去日志收集的配置项目函数
-func GetConf(key string) (collectEntryList []common.CollectEntry,err error) {
+func GetConf(key string) (collectEntryList []common.CollectEntry, err error) {
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*2)
 	defer cancel()
 	resp, err := client.Get(ctx, key)
@@ -45,9 +47,30 @@ func GetConf(key string) (collectEntryList []common.CollectEntry,err error) {
 	//ret.Value // json格式字符串
 	fmt.Println(ret.Value)
 	err = json.Unmarshal(ret.Value, &collectEntryList)
-	if err !=nil{
-		logrus.Errorf("json unmarshi failed , err:%v\n",err)
+	if err != nil {
+		logrus.Errorf("json unmarshi failed , err:%v\n", err)
 		return
 	}
 	return
+}
+
+// 监控etcd中配置变化收集项的函数
+func WatchConf(key string) {
+	for {
+		watchCh := client.Watch(context.Background(), key)
+		var newConf []common.CollectEntry
+		for wresp := range watchCh {
+			logrus.Info("get new conf from etcd!")
+			for _, evt := range wresp.Events {
+				//fmt.Printf("type :%s  key:%s  value%s\n", evt.Type, evt.Kv.Key, evt.Kv.Value)
+				err := json.Unmarshal(evt.Kv.Value, &newConf)
+				if err != nil {
+					logrus.Errorf("WatchConf json unmarshal new conf failed err:%v\n", err)
+					continue
+				}
+				//	 告诉 tailfile 这个模块 应该启用新的配置了
+				tailfile.SendNewConf(newConf) // 没有接收 就是阻塞了 暂停状态
+			}
+		}
+	}
 }

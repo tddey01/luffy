@@ -30,7 +30,15 @@ func main() {
     {
         "path":"/Users/access/Projects/go_code/src/github.com/tddey01/luffy/day014/loagent/logs/web.log",
         "topic":"web_log"
-    }
+    },
+    {
+        "path":"/Users/access/Projects/go_code/src/github.com/tddey01/luffy/day014/loagent/logs/web1.log",
+        "topic":"web1_log"
+	},
+    {
+        "path":"/Users/access/Projects/go_code/src/github.com/tddey01/luffy/day014/loagent/logs/web2.log",
+        "topic":"web2_log"
+	}
   ]`
 	_, err = cli.Put(ctx, "collect_log_conf", str)
 	cancel()
