@@ -7,8 +7,8 @@ import (
 	"time"
 
 	"github.com/sirupsen/logrus"
-	"github.com/tddey01/luffy/day014/loagent/common"
-	"github.com/tddey01/luffy/day014/loagent/tailfile"
+	"github.com/tddey01/luffy/day015/loagent/common"
+	"github.com/tddey01/luffy/day015/loagent/tailfile"
 	"go.etcd.io/etcd/clientv3"
 )
 

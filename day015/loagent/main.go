@@ -7,9 +7,9 @@ import (
 
 	"github.com/go-ini/ini"
 	"github.com/sirupsen/logrus"
-	"github.com/tddey01/luffy/day014/loagent/etcd"
-	"github.com/tddey01/luffy/day014/loagent/kafka"
-	"github.com/tddey01/luffy/day014/loagent/tailfile"
+	"github.com/tddey01/luffy/day015/loagent/etcd"
+	"github.com/tddey01/luffy/day015/loagent/kafka"
+	"github.com/tddey01/luffy/day015/loagent/tailfile"
 )
 
 //  日志手机客户端
@@ -63,7 +63,7 @@ func main() {
 	//}
 	//kafkaAddr := cfg.Section("kafka").Key("address").String()
 	//fmt.Println(kafkaAddr)
-	err := ini.MapTo(configObj, "./conf/config.ini")
+	err = ini.MapTo(configObj, "./conf/config.ini")
 	if err != nil {
 		logrus.Errorf("loal confnig failed, err:%v\n", err)
 		return

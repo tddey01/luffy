@@ -4,7 +4,6 @@ go 1.14
 
 require (
 	github.com/Shopify/sarama v1.26.4
-	github.com/StackExchange/wmi v0.0.0-20190523213315-cbe66965904d // indirect
 	github.com/axgle/mahonia v0.0.0-20180208002826-3358181d7394
 	github.com/coreos/etcd v3.3.22+incompatible // indirect
 	github.com/coreos/go-semver v0.3.0 // indirect
@@ -12,8 +11,7 @@ require (
 	github.com/coreos/pkg v0.0.0-20180928190104-399ea9e2e55f // indirect
 	github.com/gin-gonic/gin v1.6.3
 	github.com/go-ini/ini v1.57.0
-	github.com/go-ole/go-ole v1.2.4 // indirect
-	github.com/go-redis/redis v6.15.8+incompatible
+	github.com/go-redis/redis v6.15.9+incompatible
 	github.com/go-sql-driver/mysql v1.5.0
 	github.com/gogo/protobuf v1.3.1 // indirect
 	github.com/google/uuid v1.1.1 // indirect
@@ -21,9 +19,7 @@ require (
 	github.com/gorilla/websocket v1.4.2
 	github.com/hpcloud/tail v1.0.0
 	github.com/jmoiron/sqlx v1.2.0
-	github.com/nsqio/go-nsq v1.0.8
 	github.com/satori/go.uuid v1.2.0
-	github.com/shirou/gopsutil v2.20.7+incompatible
 	github.com/sirupsen/logrus v1.6.0
 	github.com/sony/sonyflake v1.0.0
 	go.etcd.io/etcd v3.3.22+incompatible
