@@ -8,6 +8,7 @@ github.com/go-ole/go-ole/oleutil
 # github.com/shirou/gopsutil v2.20.7+incompatible
 ## explicit
 github.com/shirou/gopsutil/cpu
+github.com/shirou/gopsutil/disk
 github.com/shirou/gopsutil/host
 github.com/shirou/gopsutil/internal/common
 github.com/shirou/gopsutil/load
