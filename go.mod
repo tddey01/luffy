@@ -20,6 +20,7 @@ require (
 	github.com/hpcloud/tail v1.0.0
 	github.com/influxdata/influxdb1-client v0.0.0-20200515024757-02f0bf5dbca3
 	github.com/jmoiron/sqlx v1.2.0
+	github.com/olivere/elastic/v7 v7.0.19
 	github.com/satori/go.uuid v1.2.0
 	github.com/sirupsen/logrus v1.6.0
 	github.com/sony/sonyflake v1.0.0

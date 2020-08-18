@@ -5,4 +5,5 @@ go 1.14
 require (
 	github.com/Shopify/sarama v1.27.0
 	github.com/go-ini/ini v1.58.0
+	github.com/olivere/elastic/v7 v7.0.19
 )

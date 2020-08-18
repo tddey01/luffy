@@ -22,7 +22,7 @@ func main() {
 	}
 	fmt.Println("load config successfull....")
 	// 连接kafka
-	err = kafka.Init()
+	err = kafka.Init([]string{cfg.KafkaConf.Address}, cfg.KafkaConf.Topic)
 	if err != nil {
 		fmt.Printf("connect to kafka failed err:%v\n", err)
 		return

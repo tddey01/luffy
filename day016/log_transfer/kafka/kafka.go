@@ -8,6 +8,7 @@ import (
 
 // 初始化kafka
 // 从kafka取出数据
+v
 func Init(address []string, topic string) (err error) {
 	// 创建连接消费者
 	consumer, err := sarama.NewConsumer(address, nil)
