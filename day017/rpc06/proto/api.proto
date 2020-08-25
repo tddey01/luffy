@@ -1,0 +1,26 @@
+syntax = "proto3";
+option   go_package=".;api";
+// 定义请求和响应的参数
+// 结构体 
+message CallRquest {
+
+  string name = 1;
+}
+message CallResponse {
+
+  string message = 2;
+}
+message EmptyRquest {}
+message EmptyResponse {}
+
+service Example {
+  rpc Call (CallRquest) returns (CallResponse) {};
+}
+
+service Foo {
+  rpc Bar (EmptyRquest) returns (EmptyResponse) {};
+}
+
+
+//# protoc -I . --micro_out=. --go_out=.  proto/api.proto
+//    go get -u github.com/golang/protobuf/protoc-gen-go

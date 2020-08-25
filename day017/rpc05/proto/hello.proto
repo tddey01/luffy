@@ -3,11 +3,11 @@ option   go_package=".;hello";
 
 
 message InfoRequest {
-  string name = 1;
+  string Username = 1;
 }
 
 message InfoResponse {
-  string msg = 2;
+  string Msg = 2;
 }
 
 service Hello {
