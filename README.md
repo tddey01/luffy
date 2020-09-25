@@ -57,3 +57,54 @@ q1mx:dsb
 	}
 	cancel()
 ```
+
+```
+资源均来源于网络，下载将默认同意免责协议：
+http://vmv.re/Erwyq
+
+Workstation 16 Pro for Windows :
+http://vmv.re/h0MYu
+Workstation 16 Pro for Linux : 
+http://vmv.re/OjNpz
+VMware Fusion Pro 12.0.0 for Mac :
+http://vmv.re/F28N4
+Se-rial K-ey: 
+FC11K-00DE0-0800Z-04Z5E-MC8T6
+ZF3R0-FHED2-M80TY-8QYGC-NPKYF
+YF390-0HF8P-M81RQ-2DXQE-M2UT6
+ZF71R-DMX85-08DQY-8YMNC-PPHV8
+
+27 July 2020 更新
+NSX-T 3.0.1.1
+http://vmv.re/6BlB7 提取码：vras
+
+更新日志：
+http://vmv.re/vmrd
+
+常用资源下载：
+vSphere 7.0.0b ，包括ESXi vSphere vCenter 
+http://vmv.re/h6d9I 提取码：vras
+vSphere 7 注册机：
+http://vmv.re/ndM7c 提取码：vras
+NSX-T 3.0.1:
+http://vmv.re/zYAeK  提取码：vras
+Vmware资源大全,所有资料：
+百度云群组（进去之后保存资料然后退出百度云群组，总共就200人的大小）：
+
+http://vmv.re/vmresource
+http://vmv.re/vmresource1
+http://vmv.re/vmresource2
+
+ VMware Cloud Foundation 4.0.0   
+链接：http://share.weiyun.com/YTCGS9Gk   密码：3dwn8x
+
+备份站点：
+Storage重新上线，暂时只支持大陆以外IP的请求。
+vmware资源大全：
+http://vmv.re/backvmrd
+vSphere 7 ：
+http://vmv.re/backv7d
+vSphere 7 注册机：
+http://vmv.re/backv7key
+统一密码：new.llycloud.com
+```
